@@ -6,7 +6,7 @@ This repo contains miscellanious financial market projects implemented Python.
 <li>Fetches single stock/ETF quote via marketwatch.com</li>
 <li>1st and only argument is the ticker/symbol to fetch</li>
 <li>Example Usage: 'quote.py spy'</li>
-<li>NOTE: Will only update correctly during market open hours/day, otherwise will return same price</li>
+<li>NOTE: Will only update correctly during market open hours/days, otherwise will return same price</li>
 <li>Dependencies: BeautifulSoup</li></ul>
 
 # quote_stream.py
@@ -41,7 +41,7 @@ This repo contains miscellanious financial market projects implemented Python.
 <li>Constructs daily close price chart with various moving averages for the desired currency crossing</li>
 <li>1st argument is the foreign currency symbol, 2nd argument is the domestic currency symbol</li>
 <li>Example Usage: 'forex_chart.py eur usd'</li>
-<li>NOTE: Will only update correctly during market open hours/day, otherwise will return same rate</li>
+<li>NOTE: Will only update correctly during market open hours/days, otherwise will return same rate</li>
 <li>Dependencies: Pandas, Matplotlib, alpha_vantage</li></ul>
 <br />
 Developed by Rolin Blake
