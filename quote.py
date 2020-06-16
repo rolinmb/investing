@@ -19,10 +19,16 @@ def getQuote(url):
 	price = getPrice(html)
 	print('\t Current Price: $',price)
 
+def checkTicker(t):
+		if not t.isalpha():
+			sys.exit('Non-letters entered for ticker/symbol.')
+	
 if __name__ == '__main__':
 	try:
 		ticker = sys.argv[1].lower()
 	except:
 		sys.exit('No ticker/symbol entered.')
 	
-	print(ticker)
+	stockUrl = 'https://marketwatch.com/investing/stock/'+ticker+'/historical'
+	print('Fetching stock quote for '+ticker.upper()+'...')
+	getQuote(stockUrl)
