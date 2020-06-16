@@ -30,5 +30,8 @@ if __name__ == '__main__':
 		sys.exit('No ticker/symbol entered.')
 	
 	stockUrl = 'https://marketwatch.com/investing/stock/'+ticker+'/historical'
+	start = time.time()
 	print('Fetching stock quote for '+ticker.upper()+'...')
 	getQuote(stockUrl)
+	end = time.time()
+	print('Query Time: '+str(round(float(end-start),3))+'s')
