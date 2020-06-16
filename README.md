@@ -5,7 +5,7 @@ Last Updated: <i>6/16/2020</i><br />
 <li>You will only witness stock and forex quotes update during market open hours/days,<br />
 this does not apply to cryptocurrency quotes.</li>
 <li>The standard AlphaVantage API access is 5 calls/min and 500/day;<br/>
-	so the alpha_vantage dependent xxxx_quote_stream.py scripts<br /> 
+	so the forex_quote_stream.py and crypto_quote_stream.py scripts<br /> 
 	are essentially un-usable with free AlphaVantage.</li></ul>
 <br />
 
