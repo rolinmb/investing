@@ -1,7 +1,6 @@
 # investing
- This repo contains miscellanious financial code projects
+ This repo contains miscellanious financial code projects.
  
- Using Python, the AlphaVantage API,
- Pandas, and Matplotlib libraries.
+ Using Python along with the AlphaVantage API, Pandas, and Matplotlib libraries.
  
  By Rolin Blake
