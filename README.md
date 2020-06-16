@@ -5,10 +5,10 @@
  
  # quote.py
  
- Fetches single stock/ETF quote from command-line argument
+ Fetches single stock/ETF quote from command-line argument via marketwatch.com
  
  # quote_stream.py
  
- Fetches multitude of stock/ETF quotes from command-line argument
+ Fetches multitude of stock/ETF quotes from command-line argument via marketwatch.com
  
  By Rolin Blake
