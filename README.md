@@ -1,5 +1,5 @@
 # Investing Projects
-<i>This repo contains miscellanious financial market projects implemented Python.</i><br />
+<i>This repo contains several financial market projects implemented Python.</i><br />
 Last Updated: <i>6/16/2020</i><br />
 <b>NOTES</b>:<ul>
 <li>You will only witness stock and forex quotes update during market open hours/days,<br />
