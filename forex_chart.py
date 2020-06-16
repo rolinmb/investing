@@ -45,6 +45,6 @@ if __name__ == '__main__':
 	plt.plot(c,label='Close')
 	plt.xlabel('Date')
 	plt.ylabel('Exchange Rate')
-	plt.title(foreign+'/'+domestic+' Daily Close Price')
+	plt.title(foreign+'/'+domestic+' Daily Close Rate')
 	plt.legend()
 	plt.show()

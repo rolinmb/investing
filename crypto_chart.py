@@ -53,7 +53,7 @@ if __name__ == '__main__':
 	#h = data['high']
 	#l = data['low']
 	#v = data['volume']
-	print('Generating Chart: ')
+	print('Generating Chart:')
 	plt.grid()
 	plt.plot(c,label='Close')
 	plt.plot(sma(c,105),'--',label='105-SMA')

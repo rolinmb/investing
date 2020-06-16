@@ -46,7 +46,7 @@ if __name__ == '__main__':
 	#h = data['high']
 	#l = data['low']
 	#v = data['volume']
-	print('Generating Chart: ')
+	print('Generating Chart:')
 	plt.grid()
 	plt.plot(c,label='Close')
 	plt.plot(sma(c,100),'-.',label='100-SMA')
@@ -55,6 +55,6 @@ if __name__ == '__main__':
 	plt.plot(dema(c,10),'--',label='10-DEMA')
 	plt.xlabel('Date')
 	plt.ylabel('Price')
-	plt.title(ticker+' Datiy Close Price')
+	plt.title(ticker+' Daily Close Price')
 	plt.legend()
 	plt.show()
