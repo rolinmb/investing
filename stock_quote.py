@@ -1,6 +1,5 @@
 from bs4 import BeautifulSoup
 import requests
-import time
 import sys
 import re
 
@@ -40,8 +39,5 @@ if __name__ == '__main__':
 	checkTicker(ticker)
 	stockUrl = 'https://marketwatch.com/investing/stock/'+ticker+'/historical'
 	checkExist(stockUrl)
-	start = time.time()
 	print('Fetching stock quote for '+ticker.upper()+'...')
 	getQuote(stockUrl)
-	end = time.time()
-	print('Query Time: '+str(round(float(end-start),3))+'s')
