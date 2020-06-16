@@ -22,9 +22,27 @@ def streamQuotes(url,num):
 		print('\t('+str(n+1)+') Current Price: $',price)
 	sesh.close()
 
+def checkTicker(t):
+	if not t.isalpha():
+		sys.exit('Non-letters entered for ticker/symbol.')
+	
+def checkCount(n):
+	if n <= 0:
+		sys.exit('Zero or negative entered for quote count.')
+	
 if __name__ == '__main__':
 	try:
 		ticker = sys.argv[1].lower()
+	except IndexError:
+		sys.exit('No ticker/symbol entered.')
+	try:
 		count = int(sys.argv[2])
 	except IndexError:
-		sys.exit('Argument(s) missing.')
+		sys.exit('No quote count entered.')
+	except ValueError:
+		sys.exit('Decimal entered as quote count.')
+	
+	checkTicker(ticker)
+	checkCount(count)
+	print(ticker)
+	print(count)
