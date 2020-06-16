@@ -2,7 +2,7 @@
 <i>This repo contains miscellanious financial market projects implemented Python.</i><br />
 Last Updated: <i>6/16/2020</i><br />
 <b>NOTES</b>: 
-<li>You will only witness stock and forex quotes update during market open hours/days.<br />
+<li>You will only witness stock and forex quotes update during market open hours/days,<br />
 This does not apply to cryptocurrency quotes.</li>
 <li>The standard AlphaVantage API access is 5 calls/min and 500/day;<br/>
 	so the xxxx_quote_stream.py scripts are essentially un-usable with free AlphaVantage.</li></ul>
