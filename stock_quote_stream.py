@@ -7,7 +7,7 @@ import re
 def stripCommas(s):
 	return re.sub(',(?!\s+\d$)','',s)
 
-def getPrice(html):
+def parsePrice(html):
 	soup = BeautifulSoup(html,'html.parser')
 	val = soup.find_all('p',class_='data bgLast')
 	content = [c.text for c in val]
@@ -18,7 +18,7 @@ def streamQuotes(url,num):
 	for n in range(0,num):
 		resp = sesh.get(url)
 		html = resp.text
-		price = getPrice(html)
+		price = parsePrice(html)
 		print('\t('+str(n+1)+') Current Price: $',price)
 	sesh.close()
 
@@ -32,7 +32,7 @@ def checkExist(url):
 	resp = requests.get(url)
 	html = resp.text
 	try:
-		p = getPrice(html) 
+		p = parsePrice(html) 
 	except ValueError:
 		sys.exit('Invalid ticker entered.')
 

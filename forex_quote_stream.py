@@ -1,6 +1,22 @@
-from alpha_vantage.foreignexchange import ForeignExchange
+from bs4 import BeautifulSoup
+import requests
 import time
 import sys
+
+def parseRate(html):
+	soup = BeautifulSoup(html,'html.parser')
+	valStr = soup.find_all('p',class_='data bgLast')
+	content = [c.text for c in valStr]
+	return float(''.join(content))
+
+def streamQuotes(url,num):
+	sesh = requests.session()
+	for n in range(0,num):
+		resp = sesh.get(url)
+		html = resp.text
+		rate = parseRate(html)
+		print('\t('+str(n+1)+') Current Rate: ',rate)
+	sesh.close()
 
 def checkArgs(f,d,n):
 	if not f.isalpha():
@@ -10,21 +26,23 @@ def checkArgs(f,d,n):
 	if n <= 0:
 		sys.exit('Zero or negative number of quotes entered.')
 
-def checkPair(f,d,fx):
+def checkPair(url):
+	resp = requests.get(url)
+	html = resp.text
 	try:
-		data = fx.get_currency_exchange_rate(from_currency=f,to_currency=d)[0]
+		r = parseRate(html)
 	except ValueError:
-		sys.exit('The currency pair'+f+'/'+d+' does not exist.')
+		sys.exit('The currency pair: '+f+'/'+d+' does not exist.')
 		
 if __name__ == '__main__':
 	# Anyone can use this key, AlphaVantage gives them out for free w/ no limits.
 	key = 'K2CQV5DF42ONO1EY'
 	try:
-		foreign = sys.argv[1].upper()
+		f = sys.argv[1].upper()
 	except IndexError:
 		sys.exit('No foreign currency symbol entered.')
 	try:
-		domestic = sys.argv[2].upper() 
+		d = sys.argv[2].upper() 
 	except IndexError:
 		sys.exit('No domestic currency symbol entered.')
 	try:		
@@ -34,15 +52,11 @@ if __name__ == '__main__':
 	except ValueError:
 		sys.exit('Decimal entered for number of quotes.')
 	
-	checkArgs(foreign,domestic,count)
-	forex = ForeignExchange(key)
-	checkPair(foreign,domestic,forex)
-	print('Fetching '+str(count)+' quotes for '+foreign+'/'+domestic+':')
+	checkArgs(f,d,count)
+	fxUrl = 'https://marketwatch.com/investing/currency/'+f.lower()+d.lower()+'/historical'
+	checkPair(fxUrl)
+	print('Fetching '+str(count)+' quotes for '+f+'/'+d+':')
 	start = time.time()
-	for n in range(0,count):
-		data = forex.get_currency_exchange_rate(from_currency=foreign,to_currency=domestic)[0]
-		rate = float(data['5. Exchange Rate'])
-		print('\t('+str(n+1)+') Current Rate: ',rate)
-		
+	streamQuotes(fxUrl,count)
 	end = time.time()
 	print('Query Time: '+str(round(float(end-start),3))+'s')	
