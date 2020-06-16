@@ -23,6 +23,15 @@ def checkTicker(t):
 	if not t.isalpha():
 		sys.exit('Non-letters entered for ticker/symbol.')
 	
+def checkExist(url):
+	resp = requests.get(url)
+	html = resp.text
+	try:
+		p = getPrice(html)
+	except ValueError:
+		sys.exit('Invalid ticker entered.')
+			
+	
 if __name__ == '__main__':
 	try:
 		ticker = sys.argv[1].lower()
@@ -31,6 +40,7 @@ if __name__ == '__main__':
 
 	checkTicker(ticker)
 	stockUrl = 'https://marketwatch.com/investing/stock/'+ticker+'/historical'
+	checkExist(stockUrl)
 	start = time.time()
 	print('Fetching stock quote for '+ticker.upper()+'...')
 	getQuote(stockUrl)
