@@ -27,7 +27,15 @@ def checkArgs(t,n):
 		sys.exit('Non-letters entered for ticker/symbol.')
 	if n <= 0:
 		sys.exit('Zero or negative entered for quote count.')
-	
+
+def checkTick(url):
+	resp = requests.get(url)
+	html = resp.text
+	try:
+		p = getPrice(html) 
+	except ValueError:
+		sys.exit('Invalid ticker entered.')
+
 if __name__ == '__main__':
 	try:
 		ticker = sys.argv[1].lower()
@@ -42,12 +50,9 @@ if __name__ == '__main__':
 	
 	checkArgs(ticker,count)
 	stockUrl = 'https://marketwatch.com/investing/stock/'+ticker+'/historical'
+	checkTick(stockUrl)
 	print('Fetching '+str(count)+' quotes for '+ticker.upper()+'...')
 	start = time.time()
-	try:
-		streamQuotes(stockUrl,count)
-	except ValueError:
-		sys.exit('Invalid ticker entered.')
-		
+	streamQuotes(stockUrl,count)
 	end = time.time()
 	print('Query Time: '+str(round(float(end-start),3))+'s')
