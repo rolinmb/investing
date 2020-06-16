@@ -23,4 +23,8 @@ def streamQuotes(url,num):
 	sesh.close()
 
 if __name__ == '__main__':
-	
+	try:
+		ticker = sys.argv[1].lower()
+		count = int(sys.argv[2])
+	except IndexError:
+		sys.exit('Argument(s) missing.')

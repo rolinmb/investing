@@ -26,7 +26,7 @@ def checkTicker(t):
 if __name__ == '__main__':
 	try:
 		ticker = sys.argv[1].lower()
-	except:
+	except IndexError:
 		sys.exit('No ticker/symbol entered.')
 	
 	stockUrl = 'https://marketwatch.com/investing/stock/'+ticker+'/historical'
