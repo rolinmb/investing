@@ -35,8 +35,6 @@ def checkPair(url):
 		sys.exit('The currency pair: '+f+'/'+d+' does not exist.')
 		
 if __name__ == '__main__':
-	# Anyone can use this key, AlphaVantage gives them out for free w/ no limits.
-	key = 'K2CQV5DF42ONO1EY'
 	try:
 		f = sys.argv[1].upper()
 	except IndexError:

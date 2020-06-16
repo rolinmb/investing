@@ -18,8 +18,8 @@ def getQuote(url):
 	rate = parseRate(html)
 	print('\t Current Rate: ',rate)
 
-def checkArgs(s,m):
-	if not s.isalpha():
+def checkArgs(c,m):
+	if not c.isalpha():
 		sys.exit('Non-letters entered for coin symbol.')
 	if not m.isalpha():
 		sys.exit('Non-letters entered for currency type.')
@@ -45,5 +45,5 @@ if __name__ == '__main__':
 	checkArgs(coin,mkt)
 	cryptoUrl = 'https://marketwatch.com/investing/cryptocurrency/'+coin+mkt+'/historical'
 	checkPair(cryptoUrl)
-	print('Fetching quote for: '+coin+'/'+mkt)
+	print('Fetching quote for '+coin+'/'+mkt+':')
 	getQuote(cryptoUrl)

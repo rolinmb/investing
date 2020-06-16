@@ -38,7 +38,7 @@ def checkExist(url):
 
 if __name__ == '__main__':
 	try:
-		ticker = sys.argv[1].lower()
+		ticker = sys.argv[1].upper()
 	except IndexError:
 		sys.exit('No ticker/symbol entered.')
 	try:
@@ -49,9 +49,9 @@ if __name__ == '__main__':
 		sys.exit('Invalid entry for quote count.')
 	
 	checkArgs(ticker,count)
-	stockUrl = 'https://marketwatch.com/investing/stock/'+ticker+'/historical'
+	stockUrl = 'https://marketwatch.com/investing/stock/'+ticker.lower()+'/historical'
 	checkExist(stockUrl)
-	print('Fetching '+str(count)+' quotes for '+ticker.upper()+'...')
+	print('Fetching '+str(count)+' quotes for '+ticker+':')
 	start = time.time()
 	streamQuotes(stockUrl,count)
 	end = time.time()
