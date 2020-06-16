@@ -1,12 +1,12 @@
 # Investing Projects
-This repo contains miscellanious financial market projects implemented Python.  
-NOTE: You will only witness stock and forex quotes update during market open hours/days, otherwise you will see the same price/rate.  
+This repo contains miscellanious financial market projects implemented Python.<br />
+NOTE: You will only witness stock and forex quotes update during market open hours/days.<br />
+This does not apply to cryptocurrency quotes.<br />
 # stock_quote.py
 <ul>
 <li>Fetches single stock/ETF quote via marketwatch.com</li>
 <li>1st and only argument is the ticker/symbol to fetch</li>
 <li>Example Usage: 'quote.py spy'</li>
-<li>NOTE: Will only update correctly during market open hours/days, otherwise will return same price</li>
 <li>Dependencies: BeautifulSoup</li></ul>
 
 # stock_quote_stream.py
@@ -50,4 +50,5 @@ NOTE: You will only witness stock and forex quotes update during market open hou
 <li>Example Usage: 'forex_chart.py eur usd'</li>
 <li>Dependencies: Pandas, Matplotlib, alpha_vantage</li></ul>
 <br />
-Developed by Rolin Blake
+Developed by Rolin Blake  
+
