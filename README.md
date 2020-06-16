@@ -1,4 +1,4 @@
-# <b>Investing Projects</b>
+# Investing Projects
 <i>This repo contains miscellanious financial market projects implemented Python.</i><br />
 Last Updated: <i>6/16/2020</i><br />
 <b>NOTES</b>: 
