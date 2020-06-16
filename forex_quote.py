@@ -1,5 +1,4 @@
 from alpha_vantage.foreignexchange import ForeignExchange
-import time
 import sys
 
 def checkArgs(f,d):
@@ -8,6 +7,12 @@ def checkArgs(f,d):
 	if not d.isalpha():
 		sys.exit('Non-letters entered for domestic currency symbol.')
 
+def checkPair(f,d,fx):
+	try:
+		data = fx.get_currency_exchange_rate(from_currency=f,to_currency=d)[0]
+	except ValueError:
+		sys.exit('The currency pair: '+f+'/'+d+' does not exist.')
+		
 if __name__ == '__main__':
 	# Anyone can use this key, AlphaVantage gives them out for free w/ no limits.
 	key = 'K2CQV5DF42ONO1EY'
@@ -22,11 +27,8 @@ if __name__ == '__main__':
 	
 	checkArgs(foreign,domestic)
 	forex = ForeignExchange(key)
+	checkPair(foreign,domestic,forex)
 	print('Fetching quote for: '+foreign+'/'+domestic)
-	try:
-		data = forex.get_currency_exchange_rate(from_currency=foreign,to_currency=domestic)[0]
-	except ValueError:
-		sys.exit('Invalid currency symbol entered. Please look at symbols used.')
-	
+	data = forex.get_currency_exchange_rate(from_currency=foreign,to_currency=domestic)[0]
 	rate = float(data['5. Exchange Rate'])
 	print('Current Rate: ',rate)
