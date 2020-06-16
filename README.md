@@ -12,5 +12,5 @@
  
  Fetches multitude of stock/ETF quotes from command-line argument via marketwatch.com.
  First argument is the ticker, second argument is the number of quotes. 
- <br />
+ <br /><br />
  Developed by Rolin Blake
