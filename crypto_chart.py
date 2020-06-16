@@ -28,7 +28,7 @@ def checkArgs(s,m):
 		sys.exit('Non-letters entered for currency type.')
 	
 if __name__ == '__main__':
-	# Anyone can use this key. AlphaVantage gives them out for free w/ no limit
+	# Anyone can use this key, AlphaVantage gives them out for free w/ no limits.
 	key = 'K2CQV5DF42ONO1EY' 
 	try:
 		coin = sys.argv[1].upper()
