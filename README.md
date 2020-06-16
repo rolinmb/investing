@@ -64,7 +64,7 @@ This does not apply to cryptocurrency quotes.<br />
 <li>2nd argument is the domestic currency symbol</li>
 <li>Example Usage: "forex_chart.py eur usd"</li>
 <li>Dependencies: Pandas, Matplotlib, alpha_vantage</li>
-<li><b>NOTE</b>:The standard AlphaVantage API access is 5 calls/min and 500/day;<br/>
+<li><b>NOTE</b>: The standard AlphaVantage API access is 5 calls/min and 500/day;<br/>
 				so this script is essentially un-usable.</li></ul>
 <br />
 Developed by Rolin Blake  
