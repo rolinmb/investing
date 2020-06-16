@@ -42,7 +42,7 @@ if __name__ == '__main__':
 	for n in range(0,count):
 		data = forex.get_currency_exchange_rate(from_currency=foreign,to_currency=domestic)[0]
 		rate = float(data['5. Exchange Rate'])
-		print('('+str(n+1)+') Current Rate: ',rate)
+		print('\t('+str(n+1)+') Current Rate: ',rate)
 		
 	end = time.time()
 	print('Query Time: '+str(round(float(end-start),3))+'s')	
