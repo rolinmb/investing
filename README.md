@@ -18,6 +18,7 @@ This repo contains miscellanious financial implementations with Python.
 <ul>
 <li>Utilizes the API from AlphaVantage to generate a chart for specified ticker/symbol</li>
 <li>Constructs daily close price chart with various moving averages for the dedsired stock/ETF</li>
+<li>Contains implementation/functions for Simple/Exponential/Double-Exponential Moving Averages</li>
 <li>First and only argument is the ticker/symbol</li>
 <li>Dependencies: Pandas, Matplotlib, alpha_vantage</li></ul>
 <br />
