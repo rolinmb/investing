@@ -1,7 +1,7 @@
 # Investing Projects
 <i>This repo contains miscellanious financial market projects implemented Python.</i><br />
 Last Updated: <i>6/16/2020</i><br />
-<b>NOTES</b>:<ul> 
+<b>NOTES</b>:<ul>
 <li>You will only witness stock and forex quotes update during market open hours/days,<br />
 This does not apply to cryptocurrency quotes.</li>
 <li>The standard AlphaVantage API access is 5 calls/min and 500/day;<br/>
