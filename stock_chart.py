@@ -55,6 +55,6 @@ if __name__ == '__main__':
 	plt.plot(dema(c,10),'--',label='10-DEMA')
 	plt.xlabel('Date')
 	plt.ylabel('Price')
-	plt.title(ticker+' Datily Close Price')
+	plt.title(ticker+' Datiy Close Price')
 	plt.legend()
 	plt.show()
