@@ -46,7 +46,7 @@ if __name__ == '__main__':
 	except IndexError:
 		sys.exit('No quote count entered.')
 	except ValueError:
-		sys.exit('Decimal entered as quote count.')
+		sys.exit('Invalid entry for quote count.')
 	
 	checkArgs(ticker,count)
 	stockUrl = 'https://marketwatch.com/investing/stock/'+ticker+'/historical'
