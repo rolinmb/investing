@@ -1,7 +1,7 @@
 # Investing Projects
 This repo contains miscellanious financial market projects implemented Python.
  
-# quote.py
+# stock_quote.py
 <ul>
 <li>Fetches single stock/ETF quote via marketwatch.com</li>
 <li>1st and only argument is the ticker/symbol to fetch</li>
@@ -9,7 +9,7 @@ This repo contains miscellanious financial market projects implemented Python.
 <li>NOTE: Will only update correctly during market open hours/days, otherwise will return same price</li>
 <li>Dependencies: BeautifulSoup</li></ul>
 
-# quote_stream.py
+# stock_quote_stream.py
 <ul>
 <li>Fetches multitude of stock/ETF quotes via marketwatch.com</li>
 <li>1st argument is the ticker, 2nd argument is the number of quotes</li>
