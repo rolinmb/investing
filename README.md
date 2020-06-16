@@ -33,6 +33,22 @@ this does not apply to cryptocurrency quotes.</li>
 <li>Example Usage: "stock_chart.py spy"</li>
 <li>Dependencies: Pandas, Matplotlib, alpha_vantage</li></ul>
 
+# crypto_quote.py
+<ul>
+<li>Fetches single cryptocurrency quote via marketwatch.com</li>
+<li>1st argument is the foreign currency symbol</li>
+<li>2nd argument is the domestic currency symbol</li>
+<li>Example Usage: "crypto_quote.py btc usd"</li>
+<li>Dependencies: BeautifulSoup</li></ul>
+
+# crypto_quote_stream.py
+<ul>
+<li>Fetches multitude of cryptocurrency quotes via marketwatch.com</li>
+<li>2nd argument is the domestic currency desired</li>
+<li>3rd argument is the number of quotes</li>
+<li>Example Usage: "crypto_quote_stream.py btc usd 100"</li>
+<li>Dependencies: BeautifulSoup</li></ul>
+
 # crypto_chart.py
 <ul>
 <li>Utilizes the alpha_vantage.CryptoCurrencies module to genereate a chart for specified coin and currency</li>
@@ -45,20 +61,20 @@ this does not apply to cryptocurrency quotes.</li>
 
 # forex_quote.py
 <ul>
-<li>Fetches single foreign exchange quote via alpha_vantage.ForeignExchange module</li>
+<li>Fetches single foreign exchange cross quote via marketwatch.com</li>
 <li>1st argument is the foreign currency symbol</li>
 <li>2nd argument is the domestic currency symbol</li>
 <li>Example Usage: "forex_quote.py eur usd"</li>
-<li>Dependencies: alpha_vantage</li></ul>
+<li>Dependencies: BeautifulSoup</li></ul>
 
 # forex_quote_stream.py
 <ul>
-<li>Fetches multitude of foreign exchange quotes via alpha_vantage.ForeignExchange module</li>
+<li>Fetches multitude of foreign exchange quotes via marketwatch.com</li>
 <li>1st argument is the foreign currency symbol</li>
 <li>2nd argument is the domestic currency symbol</li>
 <li>3rd argument is the number of quotes</li>
 <li>Example Usage: "forex_quote_stream.py eur usd 100"</li>
-<li>Dependencies: alpha_vantage</li></ul>
+<li>Dependencies: BeautifulSoup</li></ul>
 
 # forex_chart.py
 <ul>

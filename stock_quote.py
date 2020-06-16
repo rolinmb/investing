@@ -6,19 +6,19 @@ import re
 def stripCommas(s):
 	return re.sub(',(?!\s+\d$)','',s)
 	
-def getPrice(html):
+def parsePrice(html):
 	soup = BeautifulSoup(html,'html.parser')
-	val = soup.find_all('p',class_='data bgLast')
-	content = [c.text for c in val]
+	valStr = soup.find_all('p',class_='data bgLast')
+	content = [c.text for c in valStr]
 	return float(stripCommas(''.join(content)))
 	
 def getQuote(url):
 	resp = requests.get(url)
 	html = resp.text
-	price = getPrice(html)
+	price = parsePrice(html)
 	print('\t Current Price: $',price)
 
-def checkTicker(t):
+def checkArg(t):
 	if not t.isalpha():
 		sys.exit('Non-letters entered for ticker/symbol.')
 	
@@ -26,7 +26,7 @@ def checkExist(url):
 	resp = requests.get(url)
 	html = resp.text
 	try:
-		p = getPrice(html)
+		p = parsePrice(html)
 	except ValueError:
 		sys.exit('Invalid ticker entered.')
 	
@@ -36,7 +36,7 @@ if __name__ == '__main__':
 	except IndexError:
 		sys.exit('No ticker/symbol entered.')
 
-	checkTicker(ticker)
+	checkArg(ticker)
 	stockUrl = 'https://marketwatch.com/investing/stock/'+ticker+'/historical'
 	checkExist(stockUrl)
 	print('Fetching stock quote for '+ticker.upper()+'...')
