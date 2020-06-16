@@ -54,6 +54,8 @@ This does not apply to cryptocurrency quotes.<br />
 <li>3rd argument is the number of quotes</li>
 <li>Example Usage: "forex_quote_stream.py eur usd 100"</li>
 <li>Dependencies: alpha_vantage</li></ul>
+<li><b>NOTE</b>: The standard AlphaVantage API access is 5 calls/min and 500/day;<br/>
+				so this script is essentially un-usable with free AlphaVantage.</li></ul>
 
 # forex_chart.py
 <ul>
@@ -64,8 +66,6 @@ This does not apply to cryptocurrency quotes.<br />
 <li>2nd argument is the domestic currency symbol</li>
 <li>Example Usage: "forex_chart.py eur usd"</li>
 <li>Dependencies: Pandas, Matplotlib, alpha_vantage</li>
-<li><b>NOTE</b>: The standard AlphaVantage API access is 5 calls/min and 500/day;<br/>
-				so this script is essentially un-usable.</li></ul>
 <br />
 Developed by Rolin Blake  
 
