@@ -3,6 +3,17 @@ import matplotlib.pyplot as plt
 import pandas as pd
 import sys
 
+def sma(data,t):
+	return data.rolling(t).mean()
+
+def ema(data,t):
+	return data.eqm(span=t,adjust=False).mean()
+	
+def dema(data,t):
+	e = ema(data,t)
+	de = ema(e,t)
+	return (2.0*e)-de
+
 def formatData(data):
 	df = pd.DataFrame(data)
 	cols = [i.split(' ')[1] for i in df.columns]

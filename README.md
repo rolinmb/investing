@@ -39,6 +39,7 @@ This repo contains miscellanious financial market projects implemented Python.
 <ul>
 <li>Utilizes the AlphaVantage.ForeignExchange module to generate a chart for specified forex pair</li>
 <li>Constructs daily close price chart with various moving averages for the desired currency crossing</li>
+<li>Contains functions for Simple/Exponential/Double-Exponential Moving Averages</li>
 <li>1st argument is the foreign currency symbol, 2nd argument is the domestic currency symbol</li>
 <li>Example Usage: 'forex_chart.py eur usd'</li>
 <li>NOTE: Will only update correctly during market open hours/days, otherwise will return same rate</li>
