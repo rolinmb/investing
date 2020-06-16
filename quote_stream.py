@@ -45,7 +45,8 @@ if __name__ == '__main__':
 	checkTicker(ticker)
 	checkCount(count)
 	stockUrl = 'https://marketwatch.com/investing/stock/'+ticker+'/historical'
-	print('Fetching '+str(count)+' quoted for '+ticker.upper()+'...')
+	print('Fetching '+str(count)+' quotes for '+ticker.upper()+'...')
+	start = time.time()
 	streamQuotes(stockUrl,count)
 	end = time.time()
 	print('Query Time: '+str(round(float(end-start),3))+'s')
