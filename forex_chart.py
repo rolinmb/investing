@@ -25,7 +25,7 @@ if __name__ == '__main__':
 	forex = ForeignExchange(key,output_format='pandas')
 	print('Fetching data for: '+foreign+'/'+domestic)
 	try:
-		data = forex.fs_daily(from_symbol=foreign,to_symbol=domestic)
+		data = forex.get_currency_exchange_daily(from_symbol=foreign,to_symbol=domestic)
 	except ValueError:
 		sys.exit('Invalid currency symbol entered. Please look at symbols used.')
 	print(data)
