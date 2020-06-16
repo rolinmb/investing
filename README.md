@@ -1,5 +1,5 @@
 # Investing Projects
-This repo contains miscellanious financial implementations with Python.
+This repo contains miscellanious financial market projects implemented Python.
  
 # quote.py
 <ul>
