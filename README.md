@@ -42,6 +42,13 @@ This does not apply to cryptocurrency quotes.<br />
 <li>Example Usage: 'forex_quote.py eur usd'</li>
 <li>Dependencies: alpha_vantage</li></ul>
 
+# stock_quote_stream.py
+<ul>
+<li>Fetches multitude of foreign exchange quotes via alpha_vantage.ForeignExchange module</li>
+<li>1st argument is the foreign currency symbol, 2nd argument is the domestic currency symbol, 3rd argument is the number of quotes</li>
+<li>Example Usage: 'forex_quote_stream.py spy 100'</li>
+<li>Dependencies: alpha_vantage</li></ul>
+
 # forex_chart.py
 <ul>
 <li>Utilizes the alpha_vantage.ForeignExchange module to generate a chart for specified forex pair</li>
