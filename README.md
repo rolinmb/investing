@@ -16,8 +16,8 @@ This repo contains miscellanious financial implementations with Python.
 
 # stock_chart.py
 <ul>
-<li>Utilizes the API from AlphaVantage to generate a chart for specified stock/ETF ticker/symbol</li>
-<li>Chart is created from daily close prices for the dedsired stock/ETF</li>
+<li>Utilizes the API from AlphaVantage to generate a chart for specified ticker/symbol</li>
+<li>Constructs daily close price chart with various moving averages for the dedsired stock/ETF</li>
 <li>First and only argument is the ticker/symbol</li>
 <li>Dependencies: Pandas, Matplotlib, alpha_vantage</li></ul>
 <br />
