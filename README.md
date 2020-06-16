@@ -11,7 +11,6 @@
  # quote_stream.py
  
  Fetches multitude of stock/ETF quotes from command-line argument via marketwatch.com.
- First argument is the ticker, second argument is the number of quotes.
- 
- &nbsp;
- By Rolin Blake
+ First argument is the ticker, second argument is the number of quotes. 
+ <br />
+ Developed by Rolin Blake
