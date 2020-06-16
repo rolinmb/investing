@@ -1,8 +1,12 @@
 # <b>Investing Projects</b>
 <i>This repo contains miscellanious financial market projects implemented Python.</i><br />
 Last Updated: <i>6/16/2020</i><br />
-<b>NOTE</b>: You will only witness stock and forex quotes update during market open hours/days.<br />
-This does not apply to cryptocurrency quotes.<br />
+<b>NOTES</b>: 
+<li>You will only witness stock and forex quotes update during market open hours/days.<br />
+This does not apply to cryptocurrency quotes.</li>
+<li>The standard AlphaVantage API access is 5 calls/min and 500/day;<br/>
+	so the xxxx_quote_stream.py scripts are essentially un-usable with free AlphaVantage.</li></ul>
+<br />
 
 # stock_quote.py
 <ul>
@@ -54,8 +58,6 @@ This does not apply to cryptocurrency quotes.<br />
 <li>3rd argument is the number of quotes</li>
 <li>Example Usage: "forex_quote_stream.py eur usd 100"</li>
 <li>Dependencies: alpha_vantage</li></ul>
-<li><b>NOTE</b>: The standard AlphaVantage API access is 5 calls/min and 500/day;<br/>
-				so this script is essentially un-usable with free AlphaVantage.</li></ul>
 
 # forex_chart.py
 <ul>
