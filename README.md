@@ -7,7 +7,6 @@ This repo contains miscellanious financial market projects implemented Python.
 <li>First and only argument is the ticker/symbol to fetch</li>
 <li>Dependencies: BeautifulSoup</li></ul>
 
-
 # quote_stream.py
 <ul>
 <li>Fetches multitude of stock/ETF quotes via marketwatch.com</li>
