@@ -30,7 +30,6 @@ def checkExist(url):
 		p = getPrice(html)
 	except ValueError:
 		sys.exit('Invalid ticker entered.')
-			
 	
 if __name__ == '__main__':
 	try:

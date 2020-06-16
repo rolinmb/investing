@@ -28,7 +28,7 @@ def checkArgs(t,n):
 	if n <= 0:
 		sys.exit('Zero or negative entered for quote count.')
 
-def checkTick(url):
+def checkExist(url):
 	resp = requests.get(url)
 	html = resp.text
 	try:
@@ -50,7 +50,7 @@ if __name__ == '__main__':
 	
 	checkArgs(ticker,count)
 	stockUrl = 'https://marketwatch.com/investing/stock/'+ticker+'/historical'
-	checkTick(stockUrl)
+	checkExist(stockUrl)
 	print('Fetching '+str(count)+' quotes for '+ticker.upper()+'...')
 	start = time.time()
 	streamQuotes(stockUrl,count)
