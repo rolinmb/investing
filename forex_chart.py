@@ -7,7 +7,7 @@ def sma(data,t):
 	return data.rolling(t).mean()
 
 def ema(data,t):
-	return data.eqm(span=t,adjust=False).mean()
+	return data.ewm(span=t,adjust=False).mean()
 	
 def dema(data,t):
 	e = ema(data,t)
