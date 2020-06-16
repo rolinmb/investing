@@ -1,5 +1,5 @@
 # investing
- Miscellanious Financial Code Projects
+ This repo contains miscellanious financial code projects
  
  Using Python, the AlphaVantage API,
  Pandas, and Matplotlib libraries.
