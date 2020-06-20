@@ -25,7 +25,7 @@ this does not apply to cryptocurrency quotes.</li></ul>
 <ul>
 <li>Utilizes the alpha_vantage.TimeSeries module to generate a chart for specified ticker/symbol</li>
 <li>Constructs daily close price chart with various moving averages for the dedsired stock/ETF</li>
-<li>Contains functions for Simple/Exponential/Double-Exponential Moving Averages</li>
+<li>Contains functions for Simple/Exponential/Double-Exponential Moving Averages & Forward Finite-Difference for 1st derivative</li>
 <li>1st and only argument is the ticker/symbol</li>
 <li>Example Usage: "stock_chart.py spy"</li>
 <li>Dependencies: Pandas, Matplotlib, alpha_vantage</li></ul>
