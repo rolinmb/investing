@@ -14,7 +14,7 @@ def dema(data,t):  # Double-Exponential Moving Average
 	de = ema(e,t)
 	return (2.0*e)-de
 
-def roc(data,n):
+def roc(data,n):  # Rate of Change Indicator
 	rates = []
 	dates = data.index.values[n-1:]
 	for i in range(n-1,data.size):
@@ -23,7 +23,7 @@ def roc(data,n):
 	
 	return pd.Series(rates,index=data.index.values[n-1:])
 
-def approxDeriv(data,n):
+def approxDeriv(data,n):  # Forward-Difference approximation of f'
 	approx = []
 	rates = roc(data,n)
 	for i in range(1,rates.size):
