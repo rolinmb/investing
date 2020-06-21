@@ -1,10 +1,16 @@
 # Investing Projects
 <i>This repo contains several ongoing financial market projects implemented Python.</i><br />
-Last Updated: <i>6/16/2020</i><br />
+Last Updated: <i>6/21/2020</i><br />
 <b>NOTES</b>:<ul>
 <li>You will only witness stock and forex quotes update during market open hours/days,<br />
 this does not apply to cryptocurrency quotes.</li></ul>
 <br />
+
+# analysis.py
+<ul>
+<li>A python module of functions used for technical analysis.</li>
+<li>I have implemented Simple/Exponential/Double-Exponential moving averages, the ROC indicator, and a finite-difference approximation
+of the first derivative for the stock's price.</li></ul>
 
 # stock_quote.py
 <ul>
@@ -25,7 +31,6 @@ this does not apply to cryptocurrency quotes.</li></ul>
 <ul>
 <li>Utilizes the alpha_vantage.TimeSeries module to generate a chart for specified ticker/symbol</li>
 <li>Constructs daily close price chart with various moving averages for the dedsired stock/ETF</li>
-<li>Contains functions for Simple/Exponential/Double-Exponential Moving Averages & Forward Finite-Difference for 1st derivative</li>
 <li>1st and only argument is the ticker/symbol</li>
 <li>Example Usage: "stock_chart.py spy"</li>
 <li>Dependencies: Pandas, Matplotlib, alpha_vantage</li></ul>
@@ -51,7 +56,6 @@ this does not apply to cryptocurrency quotes.</li></ul>
 <ul>
 <li>Utilizes the alpha_vantage.CryptoCurrencies module to genereate a chart for specified coin and currency</li>
 <li>Constructs daily close price chart with various moving averages for desired cryptocurrency</li>
-<li>Contains functions for Simple/Exponential/Double-Exponential Moving Averages</li>
 <li>1st argument is the symbol of desired cryptocurrency</li>
 <li>2nd argument is the relative currency</li>
 <li>Example Usage: "crypto_chart.py btc usd"</li>
@@ -78,7 +82,6 @@ this does not apply to cryptocurrency quotes.</li></ul>
 <ul>
 <li>Utilizes the alpha_vantage.ForeignExchange module to generate a chart for specified forex pair</li>
 <li>Constructs daily close price chart with various moving averages for the desired currency crossing</li>
-<li>Contains functions for Simple/Exponential/Double-Exponential Moving Averages</li>
 <li>1st argument is the foreign currency symbol</li>
 <li>2nd argument is the domestic currency symbol</li>
 <li>Example Usage: "forex_chart.py eur usd"</li>

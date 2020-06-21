@@ -1,18 +1,8 @@
 from alpha_vantage.foreignexchange import ForeignExchange
 import matplotlib.pyplot as plt
 import pandas as pd
+from analysis import *
 import sys
-
-def sma(data,t):
-	return data.rolling(t).mean()
-
-def ema(data,t):
-	return data.ewm(span=t,adjust=False).mean()
-	
-def dema(data,t):
-	e = ema(data,t)
-	de = ema(e,t)
-	return (2.0*e)-de
 
 def formatData(data):
 	df = pd.DataFrame(data)
@@ -40,7 +30,7 @@ if __name__ == '__main__':
 	
 	checkArgs(foreign,domestic)
 	forex = ForeignExchange(key,output_format='pandas')
-	print('Fetching data for: '+foreign+'/'+domestic)
+	print('Fetching data for '+foreign+'/'+domestic+':')
 	try:
 		data = forex.get_currency_exchange_daily(from_symbol=foreign,to_symbol=domestic,outputsize='full')[0]
 	except ValueError:

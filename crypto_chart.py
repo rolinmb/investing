@@ -1,18 +1,8 @@
 from alpha_vantage.cryptocurrencies import CryptoCurrencies
 import matplotlib.pyplot as plt
 import pandas as pd
+from analysis import *
 import sys
-
-def sma(data,t):   # Simple Moving Avereage
-	return data.rolling(t).mean()
-	
-def ema(data,t):   # Exponential Moving Average
-	return data.ewm(span=t,adjust=False).mean()
-	
-def dema(data,t):  # Double-Exponential Moving Average
-	e = ema(data,t)
-	de = ema(e,t)
-	return (2.0*e)-de
 
 def formatData(data):
 	df = pd.DataFrame(data)
@@ -41,7 +31,7 @@ if __name__ == '__main__':
 	
 	checkArgs(coin,mkt)
 	crypt = CryptoCurrencies(key,output_format='pandas')
-	print('Fetching data for: '+coin+'/'+mkt)
+	print('Fetching data for '+coin+'/'+mkt+':')
 	try:
 		data = crypt.get_digital_currency_daily(symbol=coin,market=mkt)[0]
 	except ValueError:

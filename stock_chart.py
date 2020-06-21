@@ -1,42 +1,9 @@
 from alpha_vantage.timeseries import TimeSeries
 import matplotlib.pyplot as plt
 import pandas as pd
+from analysis import *
 import sys
 
-def sma(data,t):   # Simple Moving Average
-	return data.rolling(t).mean()
-	
-def ema(data,t):   # Exponential Moving Average
-	return data.ewm(span=t,adjust=False).mean()
-	
-def dema(data,t):  # Double-Exponential Moving Average
-	e = ema(data,t)
-	de = ema(e,t)
-	return (2.0*e)-de
-
-def roc(data,n):  # Rate of Change Indicator
-	rates = []
-	dates = data.index.values[n-1:]
-	for i in range(n-1,data.size):
-		rate = (data.iloc[i]-data.iloc[i-n])/data.iloc[i-n]
-		rates.append(rate)
-	
-	return pd.Series(rates,index=data.index.values[n-1:])
-
-def approxDeriv(data,n):  # Forward-Difference approximation of f'
-	approx = []
-	rates = roc(data,n)
-	for i in range(1,rates.size):
-		if(i == rates.size-1):
-			next = round(data.iloc[-1]+rates.iloc[-1],2)
-			approx.append((next-data.iloc[-2])/2)
-		else:
-			deriv = (data.iloc[i+1]-data.iloc[i-1])/2
-			approx.append(deriv)
-			
-	return pd.Series(approx,index=rates.index.values[1:])
-	
-	
 def formatData(data):
 	df = pd.DataFrame(data)
 	cols = [i.split(' ')[1] for i in df.columns]
@@ -57,7 +24,7 @@ if __name__ == '__main__':
 		
 	checkTicker(ticker)
 	ts = TimeSeries(key,output_format='pandas')
-	print('Fetching data for ticker/symbol: '+ticker)
+	print('Fetching data for ticker/symbol '+ticker+':')
 	try:
 		data = ts.get_daily(symbol=ticker,outputsize='full')[0]
 	except ValueError:
@@ -93,7 +60,7 @@ if __name__ == '__main__':
 	plt.legend()
 
 	plt.figure(2)
-	plt.title('Finite-Difference approximation of derivative for '+ticker)
+	plt.title('Finite-Difference approximation of 1st derivative for '+ticker)
 	plt.xlabel('Date')
 	plt.ylabel('Value')
 	plt.grid()
