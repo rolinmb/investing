@@ -11,9 +11,10 @@ this does not apply to cryptocurrency quotes.</li></ul>
 <li>A python module of functions used for technical analysis.</li>
 <li>Contains: 
 	<ul>
+		<li>Typial & Average price</li>
 		<li>Simple/Exponential/Double-Exponential moving averages</li>
 		<li>ROC Indicator</li>
-		<li>Typical Price</li>
+		<li>MACD with 12-Day & 26-Day EMA's </li>
 	</ul>
 </li>
 <li>Dependencies: Pandas</li></ul>
