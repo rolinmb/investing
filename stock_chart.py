@@ -35,7 +35,7 @@ if __name__ == '__main__':
 	o = data['open']
 	h = data['high']
 	l = data['low']
-	#v = data['volume']
+	v = data['volume']
 	print('Generating Charts:')
 	
 	plt.figure(0)
@@ -76,5 +76,15 @@ if __name__ == '__main__':
 	plt.plot(standardDeviations(c),label='Rolling Standard Deviations')
 	plt.plot(sma(standardDeviations(c),200),label='SMA-200 of Std. Devs')
 	plt.legend()
-
+	
+	plt.figure(4)
+	plt.title('Volume History for '+ticker)
+	plt.xlabel('Date')
+	plt.ylabel('Value')
+	plt.grid()
+	plt.plot(v,label='Volume')
+	plt.plot(ema(v,50),label='50-EMA')
+	plt.plot(sma(v,200),label='200-EMA')
+	plt.legend()
+	
 	plt.show()

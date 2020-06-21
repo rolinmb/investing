@@ -42,7 +42,7 @@ if __name__ == '__main__':
 	h = data['high']
 	l = data['low']
 	c = data['close']
-	#v = data['volume']
+	v = data['volume']
 	
 	print('Generating Charts:')
 	plt.figure(0)
@@ -81,6 +81,16 @@ if __name__ == '__main__':
 	plt.grid()
 	plt.plot(standardDeviations(c),label='Rolling Standard Deviation')
 	plt.plot(sma(standardDeviations(c),200),label='SMA-200 of Std. Devs')
+	plt.legend()
+	
+	plt.figure(4)
+	plt.title(coin+'/'+mkt+' Volume History')
+	plt.xlabel('Date')
+	plt.ylabel('Value')
+	plt.grid()
+	plt.plot(v,label='Volume')
+	plt.plot(ema(v,50),label='50-EMA')
+	plt.plot(sma(v,200),label='200-SMA')
 	plt.legend()
 	
 	plt.show()

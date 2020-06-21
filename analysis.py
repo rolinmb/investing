@@ -1,6 +1,6 @@
 import pandas as pd
 
-def standardDeviations(data):
+def standardDeviations(data): # Rolling Standard Deviation
 	devs = []
 	for i in range(0,data.size):
 		devs.append(data.iloc[data.size-(i+1):data.size].std())
@@ -42,4 +42,4 @@ def typicalPrice(h,l,c):  # Typical Price of asset
 	return (h+l+c)/3
 	
 def averagePrice(o,h,l,c): # Average Price of Open, High, Low, Close
-	return (o+h+l+c)/4	
+	return (o+h+l+c)/4
