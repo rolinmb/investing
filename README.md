@@ -1,5 +1,5 @@
 # Investing Projects
-<i>This repo contains several ongoing financial market projects implemented Python.</i><br />
+<i>This repo contains several ongoing financial market projects implemented Python(Version 3.6.2).</i><br />
 Last Updated: <i>6/21/2020</i><br />
 <b>NOTES</b>:<ul>
 <li>You will only witness stock and forex quotes update during market open hours/days,<br />
@@ -9,8 +9,13 @@ this does not apply to cryptocurrency quotes.</li></ul>
 # analysis.py
 <ul>
 <li>A python module of functions used for technical analysis.</li>
-<li>I have implemented Simple/Exponential/Double-Exponential moving averages, the ROC indicator, and a finite-difference approximation
-of the first derivative for the stock's price.</li>
+<li>Contains: 
+	<ul>
+		<li>Simple/Exponential/Double-Exponential moving averages</li>
+		<li>ROC Indicator</li>
+		<li>Typical Price</li>
+	</ul>
+</li>
 <li>Dependencies: Pandas</li></ul>
 
 # stock_quote.py
@@ -87,6 +92,3 @@ of the first derivative for the stock's price.</li>
 <li>2nd argument is the domestic currency symbol</li>
 <li>Example Usage: "forex_chart.py eur usd"</li>
 <li>Dependencies: Pandas, Matplotlib, alpha_vantage</li>
-<br />
-Written in Python 3.6.2
-

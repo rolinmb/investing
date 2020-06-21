@@ -38,11 +38,12 @@ if __name__ == '__main__':
 		sys.exit('Invalid coin or currency symbol entered.')
 	
 	data = formatData(data)
+	o = data['open']
+	h = data['high']
+	l = data['low']
 	c = data['close']
-	#o = data['open']
-	#h = data['high']
-	#l = data['low']
 	#v = data['volume']
+	
 	print('Generating Charts:')
 	plt.figure(0)
 	plt.title(coin+'/'+mkt+' Daily Close Price')
@@ -50,6 +51,7 @@ if __name__ == '__main__':
 	plt.ylabel('Price')
 	plt.grid()
 	plt.plot(c,label='Close')
+	plt.plot(sma(c,200),'--'label='200-SMA')
 	plt.plot(sma(c,105),'--',label='105-SMA')
 	plt.plot(ema(c,14),'-.',label='14-EMA')
 	plt.plot(dema(c,14),'-.',label='14-DEMA')
@@ -70,7 +72,8 @@ if __name__ == '__main__':
 	plt.ylabel('Value')
 	plt.grid()
 	plt.plot(approxDeriv(c,3),label='Slope using ROC(3)')
-	plt.plot(approxDeriv(c,5),label='Slope using ROC(5)')
 	plt.legend()
+	
+	
 	
 	plt.show()

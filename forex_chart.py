@@ -38,9 +38,9 @@ if __name__ == '__main__':
 	
 	data = formatData(data)
 	c = data['close']
-	#o = data['open']
-	#h = data['high']
-	#l = data['low']
+	o = data['open']
+	h = data['high']
+	l = data['low']
 	print('Generating Charts:')
 	
 	plt.figure(0)
@@ -49,7 +49,8 @@ if __name__ == '__main__':
 	plt.ylabel('Rate')
 	plt.grid()
 	plt.plot(c,label='Close')
-	plt.plot(sma(c,150),'--',label='150-SMA')
+	plt.plot(sma(c,200),'--',label='200-SMA')
+	plt.plot(sma(c,100),'--',label='100-SMA')
 	plt.plot(ema(c,15),'-.',label='15-EMA')
 	plt.plot(dema(c,15),'-.',label='15-DEMA')
 	plt.legend()
@@ -69,8 +70,8 @@ if __name__ == '__main__':
 	plt.ylabel('Value')
 	plt.grid()
 	plt.plot(approxDeriv(c,3),label='Slope using ROC(3)')
-	plt.plot(approxDeriv(c,5),label='Slope using ROC(5)')
 	plt.legend()
+	
 	
 	
 	plt.show()
