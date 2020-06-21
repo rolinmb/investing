@@ -84,7 +84,7 @@ if __name__ == '__main__':
 	plt.grid()
 	plt.plot(v,label='Volume')
 	plt.plot(ema(v,50),label='50-EMA')
-	plt.plot(sma(v,200),label='200-EMA')
+	plt.plot(sma(v,200),label='200-SMA')
 	plt.legend()
 	
 	plt.show()
