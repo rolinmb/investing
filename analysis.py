@@ -1,5 +1,12 @@
 import pandas as pd
 
+def standardDeviations(data):
+	devs = []
+	for i in range(0,data.size):
+		devs.append(data.iloc[data.size-(i+1):data.size].std())
+
+	return pd.Series(devs,index=data.index.values)
+
 def sma(data,t):    # Simple Moving Average
 	return data.rolling(t).mean()
 	
@@ -35,11 +42,4 @@ def typicalPrice(h,l,c):  # Typical Price of asset
 	return (h+l+c)/3
 	
 def averagePrice(o,h,l,c): # Average Price of Open, High, Low, Close
-	return (o+h+l+c)/4
-	
-def macd(data):
-	ema12 = ema(data,12)
-	ema26 = ema(data,26)
-	macdLine = ema12-ema26
-	signal = ema(macdLine,9)
-	return macdLine,signal
+	return (o+h+l+c)/4	

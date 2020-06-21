@@ -14,7 +14,7 @@ this does not apply to cryptocurrency quotes.</li></ul>
 		<li>Typial & Average price</li>
 		<li>Simple/Exponential/Double-Exponential moving averages</li>
 		<li>ROC Indicator</li>
-		<li>MACD with 12-Day & 26-Day EMA's </li>
+		<li>Standard Deviation over time</li>
 	</ul>
 </li>
 <li>Dependencies: Pandas</li></ul>

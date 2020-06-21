@@ -68,14 +68,13 @@ if __name__ == '__main__':
 	plt.plot(approxDeriv(c,3),label='Slope using ROC(3)')
 	plt.legend()
 	
-	macdVal,signal = macd(c)	
 	plt.figure(3)
-	plt.title('Daily MACD w/ Signal Line for '+ticker)
+	plt.title('Standard Deviation over time for '+ticker)
 	plt.xlabel('Date')
 	plt.ylabel('Value')
 	plt.grid()
-	plt.plot(macdVal,label='MACD')
-	plt.plot(signal,label='Signal Line')
+	plt.plot(standardDeviations(c),label='Rolling Standard Deviations')
+	plt.plot(sma(standardDeviations(c),200),label='SMA-200 of Std. Devs')
 	plt.legend()
 
 	plt.show()
