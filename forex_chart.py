@@ -72,6 +72,14 @@ if __name__ == '__main__':
 	plt.plot(approxDeriv(c,3),label='Slope using ROC(3)')
 	plt.legend()
 	
-	
+	macdVal,signal = macd(c)	
+	plt.figure(3)
+	plt.title(foreign+'/'+domestic+' Daily MACD w/ Signal Line')
+	plt.xlabel('Date')
+	plt.ylabel('Value')
+	plt.grid()
+	plt.plot(macdVal,label='MACD')
+	plt.plot(signal,label='Signal Line')
+	plt.legend()
 	
 	plt.show()

@@ -37,3 +37,9 @@ def typicalPrice(h,l,c):  # Typical Price of asset
 def averagePrice(o,h,l,c): # Average Price of Open, High, Low, Close
 	return (o+h+l+c)/4
 	
+def macd(data):
+	ema12 = ema(data,12)
+	ema26 = ema(data,26)
+	macdLine = ema12-ema26
+	signal = ema(macdLine,9)
+	return macdLine,signal
