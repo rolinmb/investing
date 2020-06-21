@@ -51,7 +51,7 @@ if __name__ == '__main__':
 	plt.legend()
 	
 	plt.figure(1)
-	plt.title('Rates of Change for '+ticker)
+	plt.title('Rates of Change (Daily) for '+ticker)
 	plt.xlabel('Date')
 	plt.ylabel('Value')
 	plt.grid()
@@ -60,12 +60,12 @@ if __name__ == '__main__':
 	plt.legend()
 
 	plt.figure(2)
-	plt.title('Finite-Difference approximation of 1st derivative for '+ticker)
+	plt.title('Finite-Difference Approximation of 1st Derivative for '+ticker)
 	plt.xlabel('Date')
 	plt.ylabel('Value')
 	plt.grid()
-	plt.plot(approxDeriv(c,12),label='using f\' = ROC(12)')
-	plt.plot(approxDeriv(c,25),label='using f\' = ROC(25)')
+	plt.plot(approxDeriv(c,3),label='Slope using ROC(3)')
+	plt.plot(approxDeriv(c,5),label='Slope using ROC(5)')
 	plt.legend()
 	
 	plt.show()

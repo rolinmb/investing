@@ -43,14 +43,34 @@ if __name__ == '__main__':
 	#h = data['high']
 	#l = data['low']
 	#v = data['volume']
-	print('Generating Chart:')
+	print('Generating Charts:')
+	plt.figure(0)
+	plt.title(coin+'/'+mkt+' Daily Close Price')
+	plt.xlabel('Date')
+	plt.ylabel('Price')
 	plt.grid()
 	plt.plot(c,label='Close')
 	plt.plot(sma(c,105),'--',label='105-SMA')
 	plt.plot(ema(c,14),'-.',label='14-EMA')
 	plt.plot(dema(c,14),'-.',label='14-DEMA')
-	plt.xlabel('Date')
-	plt.ylabel('Price')
-	plt.title(coin+'/'+mkt+' Daily Close Price')
 	plt.legend()
+	
+	plt.figure(1)
+	plt.title(coin+'/'+mkt+' Rates of Change (Daily)')
+	plt.xlabel('Date')
+	plt.ylabel('Value')
+	plt.plot(roc(c,14),label='ROC(14)')
+	plt.plot(roc(c,35),label='ROC(35)')
+	plt.grid()
+	plt.legend()
+	
+	plt.figure(2)
+	plt.title(coin+'/'+mkt+' Finite-Difference Approximation for 1st Derivative')
+	plt.xlabel('Date')
+	plt.ylabel('Value')
+	plt.grid()
+	plt.plot(approxDeriv(c,3),label='Slope using ROC(3)')
+	plt.plot(approxDeriv(c,5),label='Slope using ROC(5)')
+	plt.legend()
+	
 	plt.show()

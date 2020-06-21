@@ -41,14 +41,36 @@ if __name__ == '__main__':
 	#o = data['open']
 	#h = data['high']
 	#l = data['low']
-	print('Generating Chart:')
+	print('Generating Charts:')
+	
+	plt.figure(0)
+	plt.title(foreign+'/'+domestic+' Daily Exchange Rate Close')
+	plt.xlabel('Date')
+	plt.ylabel('Rate')
 	plt.grid()
 	plt.plot(c,label='Close')
 	plt.plot(sma(c,150),'--',label='150-SMA')
 	plt.plot(ema(c,15),'-.',label='15-EMA')
 	plt.plot(dema(c,15),'-.',label='15-DEMA')
-	plt.xlabel('Date')
-	plt.ylabel('Exchange Rate')
-	plt.title(foreign+'/'+domestic+' Daily Close Rate')
 	plt.legend()
+	
+	plt.figure(1)
+	plt.title(foreign+'/'+domestic+' Rates of Change (Daily)')
+	plt.xlabel('Date')
+	plt.ylabel('Value')
+	plt.grid()
+	plt.plot(roc(c,14),label='ROC(14)')
+	plt.plot(roc(c,35),label='ROC(35)')
+	plt.legend()
+	
+	plt.figure(2)
+	plt.title(foreign+'/'+domestic+' Finite-Difference Approximation for 1st Derivative')
+	plt.xlabel('Date')
+	plt.ylabel('Value')
+	plt.grid()
+	plt.plot(approxDeriv(c,3),label='Slope using ROC(3)')
+	plt.plot(approxDeriv(c,5),label='Slope using ROC(5)')
+	plt.legend()
+	
+	
 	plt.show()
