@@ -88,5 +88,5 @@ of the first derivative for the stock's price.</li>
 <li>Example Usage: "forex_chart.py eur usd"</li>
 <li>Dependencies: Pandas, Matplotlib, alpha_vantage</li>
 <br />
-Developed by Rolin Blake  
+Written in Python 3.6.2
 
