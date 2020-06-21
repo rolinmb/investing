@@ -10,7 +10,8 @@ this does not apply to cryptocurrency quotes.</li></ul>
 <ul>
 <li>A python module of functions used for technical analysis.</li>
 <li>I have implemented Simple/Exponential/Double-Exponential moving averages, the ROC indicator, and a finite-difference approximation
-of the first derivative for the stock's price.</li></ul>
+of the first derivative for the stock's price.</li>
+<li>Dependencies: Pandas</li></ul>
 
 # stock_quote.py
 <ul>
