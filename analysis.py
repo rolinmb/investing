@@ -43,3 +43,14 @@ def typicalPrice(h,l,c):  # Typical Price of asset
 	
 def averagePrice(o,h,l,c): # Average Price of Open, High, Low, Close
 	return (o+h+l+c)/4
+	
+def tsi(c,r,s):
+	mom = []
+	for i in range(1,c.size):
+		m = c.iloc[i]-c.iloc[i-1]
+		mom.append(m)
+		
+	mom = pd.Series(mom,index=c.index.values[1:])
+	ema1 = ema(ema(mom,r),s)
+	ema2 = ema(ema(abs(mom),r),s)
+	return 100*(ema1/ema2)

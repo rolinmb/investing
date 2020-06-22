@@ -87,4 +87,11 @@ if __name__ == '__main__':
 	plt.plot(sma(v,200),label='200-SMA')
 	plt.legend()
 	
+	plt.figure(5)
+	plt.title('True Strength Index for '+ticker)
+	plt.xlabel('Date')
+	plt.ylabel('Value')
+	plt.grid()
+	plt.plot(tsi(c,26,12))
+	
 	plt.show()
