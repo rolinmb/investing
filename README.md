@@ -15,6 +15,7 @@ this does not apply to cryptocurrency quotes.</li></ul>
 		<li>Simple/Exponential/Double-Exponential moving averages</li>
 		<li>ROC Indicator</li>
 		<li>Standard Deviation over time</li>
+		<li>True Strength Index</li>
 	</ul>
 </li>
 <li>Dependencies: Pandas</li></ul>
