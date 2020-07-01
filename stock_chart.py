@@ -44,11 +44,12 @@ if __name__ == '__main__':
 	plt.ylabel('Price')
 	plt.grid()
 	plt.plot(c,label='Close')
+	plt.plot(sma(c,500),label='500-SMA')
 	plt.plot(sma(c,200),'--',label='200-SMA')
 	plt.plot(sma(c,100),'--',label='100-SMA')
-	plt.plot(sma(c,50),'--',label='50-SMA')
+	plt.plot(sma(c,25),'--',label='25-SMA')
 	plt.plot(ema(c,10),'-.',label='10-EMA')
-	plt.plot(dema(c,10),'-.',label='10-DEMA')
+	plt.plot(dema(c,7),'-.',label='7-DEMA')
 	plt.legend()
 	
 	plt.figure(1)
@@ -58,6 +59,7 @@ if __name__ == '__main__':
 	plt.grid()
 	plt.plot(roc(c,12),label='ROC(12)')
 	plt.plot(roc(c,25),label='ROC(25)')
+	plt.plot(roc(c,100),label='ROC(100)')
 	plt.legend()
 
 	plt.figure(2)
@@ -66,6 +68,7 @@ if __name__ == '__main__':
 	plt.ylabel('Value')
 	plt.grid()
 	plt.plot(approxDeriv(c,3),label='Slope using ROC(3)')
+	plt.plot(abs(approxDeriv(c,3)),label='Magnitude of slope w/ ROC(3)')
 	plt.legend()
 	
 	plt.figure(3)
