@@ -104,3 +104,7 @@ this does not apply to cryptocurrency quotes.</li>
 <li>When BTC/USD increases, Bitcoin strengthens relative to Ethereum</li>
 <li>When BTC/USD decreases, Ethereum strengthens relative to Bitcoin and other Altcoins tend to strengthen too.</li>
 <li>Dependencies: Pandas, Matplotlib, alpha_vantage</li></ul>
+
+# btc_xtz.py
+<ul><li>BTC/XTZ Ratio using BTC/USD and XTZ/USD</li>
+<li>Dependencies: Pandas, Matplotlib, alpha_vantage</li></ul>
