@@ -94,7 +94,7 @@ this does not apply to cryptocurrency quotes.</li>
 <li>Dependencies: Pandas, Matplotlib, alpha_vantage</li></ul>
 
 # gold_silver.py
-<ul><li>Gold/Silver (XAU/XAG) Ratio using IAU and SLV ETF's</li>
+<ul><li>Gold/Silver (XAU/XAG) Ratio using GLDM and SLV ETFs (Short lookback period)</li>
 <li>When the XAU/XAG increases, Gold strengthens relative to Silver</li>
 <li>When the XAU/XAG decreases, Silver strengthens relative to Gold</li>
 <li>Dependencies: Pandas, Matplotlib, alpha_vantage</li></ul>
