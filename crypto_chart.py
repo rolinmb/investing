@@ -1,7 +1,8 @@
 from alpha_vantage.cryptocurrencies import CryptoCurrencies
+from analysis import *
+from config import *
 import matplotlib.pyplot as plt
 import pandas as pd
-from analysis import *
 import sys
 
 def formatData(data):
@@ -18,8 +19,6 @@ def checkArgs(s,m):
 		sys.exit('Non-letters entered for currency type.')
 	
 if __name__ == '__main__':
-	# Anyone can use this key, AlphaVantage gives them out for free w/ no limits.
-	key = 'K2CQV5DF42ONO1EY' 
 	try:
 		coin = sys.argv[1].upper()
 	except IndexError:
@@ -30,7 +29,7 @@ if __name__ == '__main__':
 		sys.exit('No currency type entered.')
 	
 	checkArgs(coin,mkt)
-	crypt = CryptoCurrencies(key,output_format='pandas')
+	crypt = CryptoCurrencies(AV_API_KEY,output_format='pandas')
 	print('Fetching data for '+coin+'/'+mkt+':')
 	try:
 		data = crypt.get_digital_currency_daily(symbol=coin,market=mkt)[0]
@@ -38,11 +37,11 @@ if __name__ == '__main__':
 		sys.exit('Invalid coin or currency symbol entered.')
 	
 	data = formatData(data)
-	o = data['open']
-	h = data['high']
-	l = data['low']
+	#o = data['open']
+	#h = data['high']
+	#l = data['low']
 	c = data['close']
-	v = data['volume']
+	#v = data['volume']
 	
 	print('Generating Charts:')
 	plt.figure(0)

@@ -1,7 +1,8 @@
 from alpha_vantage.timeseries import TimeSeries
+from analysis import *
+from config import *
 import matplotlib.pyplot as plt
 import pandas as pd
-from analysis import *
 import sys
 
 def formatData(data):
@@ -15,15 +16,13 @@ def checkTicker(t):
 		sys.exit('Non-letters entered for ticker/symbol.')
 
 if __name__ == '__main__':
-	# Anyone can use this key, AlphaVantage gives them out for free w/ no limits.
-	key = 'K2CQV5DF42ONO1EY' 
 	try:
 		ticker = sys.argv[1].upper()
 	except IndexError:
 		sys.exit('No ticker/symbol entered.')
 		
 	checkTicker(ticker)
-	ts = TimeSeries(key,output_format='pandas')
+	ts = TimeSeries(AV_API_KEY,output_format='pandas')
 	print('Fetching data for ticker/symbol '+ticker+':')
 	try:
 		data = ts.get_daily(symbol=ticker,outputsize='full')[0]
@@ -32,9 +31,9 @@ if __name__ == '__main__':
 	
 	data = formatData(data)
 	c = data['close']
-	o = data['open']
-	h = data['high']
-	l = data['low']
+	#o = data['open']
+	#h = data['high']
+	#l = data['low']
 	v = data['volume']
 	print('Generating Charts:')
 	

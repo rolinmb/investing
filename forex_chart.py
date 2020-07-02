@@ -1,7 +1,8 @@
 from alpha_vantage.foreignexchange import ForeignExchange
+from analysis import *
+from config import *
 import matplotlib.pyplot as plt
 import pandas as pd
-from analysis import *
 import sys
 
 def formatData(data):
@@ -17,8 +18,6 @@ def checkArgs(f,d):
 		sys.exit('Non-letters entered for domestic currency symbol.')
 
 if __name__ == '__main__':
-	# Anyone can use this key, AlphaVantage gives them out for free w/ no limits.
-	key = 'K2CQV5DF42ONO1EY' 
 	try:
 		foreign = sys.argv[1].upper()
 	except IndexError:
@@ -27,22 +26,19 @@ if __name__ == '__main__':
 		domestic = sys.argv[2].upper() 
 	except IndexError:
 		sys.exit('No domestic currency symbol entered.')
-	
 	checkArgs(foreign,domestic)
-	forex = ForeignExchange(key,output_format='pandas')
+	forex = ForeignExchange(AV_API_KEY,output_format='pandas')
 	print('Fetching data for '+foreign+'/'+domestic+':')
 	try:
 		data = forex.get_currency_exchange_daily(from_symbol=foreign,to_symbol=domestic,outputsize='full')[0]
 	except ValueError:
 		sys.exit('Invalid currency symbol entered. Please look at symbols used.')
-	
 	data = formatData(data)
 	c = data['close']
-	o = data['open']
-	h = data['high']
-	l = data['low']
+	#o = data['open']
+	#h = data['high']
+	#l = data['low']
 	print('Generating Charts:')
-	
 	plt.figure(0)
 	plt.title(foreign+'/'+domestic+' Daily Exchange Rate Close')
 	plt.xlabel('Date')
