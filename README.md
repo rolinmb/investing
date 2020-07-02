@@ -4,7 +4,7 @@ Last Updated: <i>7/1/2020</i><br />
 <b>NOTES</b>:<ul>
 <li>You will only witness stock and forex quotes update during market open hours/days,<br />
 this does not apply to cryptocurrency quotes.</li></ul>
-<br />
+
 # backtesting
 <ul>
 	<li>This folder contains projects from analyzing various strategies I plan to use on a paper account with Alpaca</li>
