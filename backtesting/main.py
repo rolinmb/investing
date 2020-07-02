@@ -1,5 +1,5 @@
 from alpha_vantage.timeseries import TimeSeries
-#from config import *
+from config import *
 from analysis import *
 from strategies import *
 from alpaca_util import *
