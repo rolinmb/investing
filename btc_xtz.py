@@ -11,23 +11,21 @@ def formatCryptoData(data):
 	return df.T.drop_duplicates().T
 	
 if __name__ == '__main__':
-	api = CryptoCurrencies(AV_API_KEY,output_format='pandas') 
+	api = CryptoCurrencies(AV_API_KEY,output_format='pandas')
 	bData = api.get_digital_currency_daily(symbol='BTC',market='USD')[0]
-	eData = api.get_digital_currency_daily(symbol='ETH',market='USD')[0]
+	tData = api.get_digital_currency_daily(symbol='XTZ',market='USD')[0]
 	btc = formatCryptoData(bData)
-	eth = formatCryptoData(eData)
+	xtz = formatCryptoData(tData)
 	bAverage = averagePrice(btc['open'],btc['high'],btc['low'],btc['close'])
-	eAverage = averagePrice(eth['open'],eth['high'],eth['low'],eth['close'])
-	ratio = bAverage/eAverage
+	tAverage = averagePrice(xtz['open'],xtz['high'],xtz['low'],xtz['close'])
+	ratio = bAverage/tAverage
 	
 	plt.figure(0)
-	plt.title('Bitcoin/Ethereum Daily (USD-Derived)')
+	plt.title('Bitcoin/Tezos Daily (USD-Derived)')
 	plt.xlabel('Date')
 	plt.ylabel('Ratio')
 	plt.grid()
-	plt.plot(ratio,label='BTC/ETH')
+	plt.plot(ratio,label='BTC/XTZ')
 	plt.plot(sma(ratio,100),'--',label='100-SMA')
-	plt.plot(ema(ratio,7),'-.',label='7-EMA')
-	plt.plot(ema(ratio,28),'-.',label='28-EMA')
 	plt.legend()
 	plt.show()
