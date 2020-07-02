@@ -5,14 +5,13 @@ Last Updated: <i>7/1/2020</i><br />
 <li>You will only witness stock and forex quotes update during market open hours/days,<br />
 this does not apply to cryptocurrency quotes.</li></ul>
 <br />
-
 # backtesting
 <ul>
 	<li>This folder contains projects from analyzing various strategies I plan to use on a paper account with Alpaca</li>
 	<li>main.py executes the backtest</li>
 	<li>stragegies.py are the 4 strategies I've implemented a backtest for</li>
 	<li>analysis.py in this folder is different than the one in the outer/root repo; contains staistics helpers for strategies.py</li>
-	<li></li>
+	<li>alpaca_util.py contains several functions that work with alpaca_trade_api.REST accounts</li>
 	<li>NOTE: you will need a config.py file with your Alpaca & AlphaVantage API keys</li>
 	<li>Dependencies: Pandas, alpaca_trade_api, alpha_vantage, matplotlib</li>
 </ul>
