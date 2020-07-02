@@ -3,7 +3,8 @@
 Last Updated: <i>7/1/2020</i><br />
 <b>NOTES</b>:<ul>
 <li>You will only witness stock and forex quotes update during market open hours/days,<br />
-this does not apply to cryptocurrency quotes.</li></ul>
+this does not apply to cryptocurrency quotes.</li>
+<li>You will need your own Alpaca & AlphaVantage API keys. I keep mine in a local 'confing.py' file</li><ul>
 
 # /backtesting
 <ul><li>This folder contains projects from analyzing various strategies I plan to use on a paper account with Alpaca</li>
