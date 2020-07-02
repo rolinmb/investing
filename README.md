@@ -5,7 +5,7 @@ Last Updated: <i>7/1/2020</i><br />
 <li>You will only witness stock and forex quotes update during market open hours/days,<br />
 this does not apply to cryptocurrency quotes.</li></ul>
 
-# backtesting
+# /backtesting
 <ul>
 	<li>This folder contains projects from analyzing various strategies I plan to use on a paper account with Alpaca</li>
 	<li>main.py executes the backtest</li>
