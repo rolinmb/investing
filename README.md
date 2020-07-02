@@ -12,7 +12,7 @@ this does not apply to cryptocurrency quotes.</li>
 <li>stragegies.py are the 4 strategies I've implemented a backtest for</li>
 <li>analysis.py in this folder is different than the one in the outer/root repo; contains staistics helpers for strategies.py</li>
 <li>alpaca_util.py contains several functions that work with alpaca_trade_api.REST accounts</li>
-<li>NOTE: you will need a config.py file with your Alpaca & AlphaVantage API keys</li>
+<li>I have a file data.txt where I output the results to as a whitespace-delimited file</li>
 <li>Dependencies: Pandas, alpaca_trade_api, alpha_vantage, matplotlib</li></ul>
 
 # analysis.py
@@ -102,5 +102,5 @@ this does not apply to cryptocurrency quotes.</li>
 # btc_eth.py
 <ul><li>BTC/ETH Ratio using BTC/USD and ETH/USD</li>
 <li>When BTC/USD increases, Bitcoin strengthens relative to Ethereum</li>
-<li>When BTC/USD decreases, Ethereum strengthens relative to Bitcoin and other Altocins tend to strengthen too.</li>
+<li>When BTC/USD decreases, Ethereum strengthens relative to Bitcoin and other Altcoins tend to strengthen too.</li>
 <li>Dependencies: Pandas, Matplotlib, alpha_vantage</li></ul>
