@@ -24,6 +24,7 @@ this does not apply to cryptocurrency quotes.</li>
 		<li>ROC Indicator</li>
 		<li>Standard Deviation over time</li>
 		<li>True Strength Index</li>
+		<li>Commodity Channel Index</li>
 	</ul></li>
 <li>Dependencies: Pandas</li></ul>
 
