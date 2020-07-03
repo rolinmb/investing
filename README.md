@@ -8,7 +8,16 @@ this does not apply to cryptocurrency quotes.</li>
 
 # /backtesting
 <ul><li>This folder contains projects from analyzing various strategies I plan to use on a paper account with Alpaca</li>
-<li>main.py executes the backtest</li>
+<li>main.py executes the backtest, 3 arguments needed unless you delete [ticker] in the tData[] list which then allows the program
+to iterates through the uncommented tickers in tData. 
+	<ul>
+		<li>1st argument is the ticker (unless commented)</li>
+		<li>2nd argument is the number of shares (shares > 0) NOTE: this is the 1st argument if ticker is disabled</li>
+		<li>3rd argument is the initial account balance for each backtest (balance > 0) NOTE: this is the 2nd argument if ticker is disabled</li>
+	</ul>
+</li>
+<li>Example Usage w/ 3 arguments): main.py spy 1 1000 /li>
+<li>Example Usage w/ 2 arguments): main.py 1 1000</li>
 <li>stragegies.py are the 4 strategies I've implemented a backtest for</li>
 <li>analysis.py in this folder is different than the one in the outer/root repo; contains staistics helpers for strategies.py</li>
 <li>alpaca_util.py contains several functions that work with alpaca_trade_api.REST accounts</li>
@@ -20,7 +29,7 @@ this does not apply to cryptocurrency quotes.</li>
 <li>Contains: 
 	<ul>
 		<li>Typial & Average price</li>
-		<li>Simple/Exponential/Double-Exponential moving averages</li>
+		<li>Simple/Exponential/Double-Exponential Moving Averages</li>
 		<li>ROC Indicator</li>
 		<li>Standard Deviation over time</li>
 		<li>True Strength Index</li>
@@ -95,17 +104,17 @@ this does not apply to cryptocurrency quotes.</li>
 <li>Dependencies: Pandas, Matplotlib, alpha_vantage</li></ul>
 
 # gold_silver.py
-<ul><li>Gold/Silver (XAU/XAG) Ratio using GLDM and SLV ETFs (Short lookback period)</li>
+<ul><li>Gold/Silver Ratio (XAU/XAG) using GLDM and SLV ETFs (Short lookback period)</li>
 <li>When the XAU/XAG increases, Gold strengthens relative to Silver</li>
 <li>When the XAU/XAG decreases, Silver strengthens relative to Gold</li>
 <li>Dependencies: Pandas, Matplotlib, alpha_vantage</li></ul>
 
 # btc_eth.py
-<ul><li>BTC/ETH Ratio using BTC/USD and ETH/USD</li>
+<ul><li>Bitcoin/Ethereum Ratio (BTC/ETH) using BTC/USD and ETH/USD</li>
 <li>When BTC/USD increases, Bitcoin strengthens relative to Ethereum</li>
 <li>When BTC/USD decreases, Ethereum strengthens relative to Bitcoin and other Altcoins tend to strengthen too.</li>
 <li>Dependencies: Pandas, Matplotlib, alpha_vantage</li></ul>
 
 # btc_xtz.py
-<ul><li>BTC/XTZ Ratio using BTC/USD and XTZ/USD</li>
+<ul><li>Bitcoin/Tezos Ratio (BTC/XTZ) using BTC/USD and XTZ/USD</li>
 <li>Dependencies: Pandas, Matplotlib, alpha_vantage</li></ul>
