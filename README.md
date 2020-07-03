@@ -33,8 +33,8 @@ to iterates through the uncommented tickers in tData.
 		<li>ROC Indicator</li>
 		<li>Standard Deviation over time</li>
 		<li>True Strength Index</li>
-		<li>Commodity Channel Index</li>
-	</ul></li>
+		<li>Commodity Channel Index</li></ul>
+</li>
 <li>Dependencies: Pandas</li></ul>
 <hr>
 
