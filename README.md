@@ -37,6 +37,7 @@ to iterates through the uncommented tickers in tData.
 	</ul></li>
 <li>Dependencies: Pandas</li></ul>
 <hr>
+
 # stock_quote.py
 <ul><li>Fetches single stock/ETF quote via marketwatch.com</li>
 <li>1st and only argument is the ticker/symbol of desired stock</li>
@@ -57,6 +58,7 @@ to iterates through the uncommented tickers in tData.
 <li>Example Usage: "stock_chart.py spy"</li>
 <li>Dependencies: Pandas, Matplotlib, alpha_vantage</li></ul>
 <hr>
+
 # crypto_quote.py
 <ul><li>Fetches single cryptocurrency quote via marketwatch.com</li>
 <li>1st argument is the foreign currency symbol</li>
@@ -80,6 +82,7 @@ to iterates through the uncommented tickers in tData.
 <li>Example Usage: "crypto_chart.py btc usd"</li>
 <li>Dependencies: Pandas, Matplotlib, alpha_vantage</li></ul>
 <hr>
+
 # forex_quote.py
 <ul><li>Fetches single foreign exchange cross quote via marketwatch.com</li>
 <li>1st argument is the foreign currency symbol</li>
@@ -103,6 +106,7 @@ to iterates through the uncommented tickers in tData.
 <li>Example Usage: "forex_chart.py eur usd"</li>
 <li>Dependencies: Pandas, Matplotlib, alpha_vantage</li></ul>
 <hr>
+
 # gold_silver.py
 <ul><li>Gold/Silver Ratio (XAU/XAG) using GLDM and SLV ETFs (Short lookback period)</li>
 <li>When the XAU/XAG increases, Gold strengthens relative to Silver</li>

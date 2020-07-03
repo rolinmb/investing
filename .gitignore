@@ -5,6 +5,6 @@ crypto/analysis.py
 forex/config.py
 forex/analysis.py
 misc/config.py
-misc//analysis.py
+misc/analysis.py
 stock/config.py
 stock/analysis.py
