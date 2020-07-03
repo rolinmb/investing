@@ -8,30 +8,6 @@ import matplotlib.pyplot as plt
 import pandas as pd
 import time
 import sys
-import re
-
-def genCharts(data,t):
-	print('\n(Generating charts)')
-	plt.figure(0)
-	plt.title(t+' Daily Close Price')
-	plt.xlabel('Date')
-	plt.ylabel('Price')
-	plt.grid()
-	plt.plot(data,label='Close')
-	plt.plot(ema(data,7),label='7-EMA')
-	plt.plot(ema(data,25),label='25-EMA')
-	plt.legend()
-	plt.figure(1)
-	plt.title('Rates of Change')
-	plt.xlabel('Date')
-	plt.ylabel('Value')
-	plt.grid()
-	plt.plot(roc(data,12),label='ROC(12):Close')
-	plt.plot(roc(ema(data,7),12),label='ROC(12):7-EMA')
-	plt.plot(roc(ema(data,25),12),label='ROC(12):25-EMA')
-	plt.legend()
-	print('\t*Displaying charts')
-	plt.show()
 	
 def formatData(data):
 	df = pd.DataFrame(data)
@@ -39,7 +15,7 @@ def formatData(data):
 	df.columns = cols
 	return df
 	
-def fetchData(ts,t,charts):	
+def fetchData(ts,t):	
 	fetchStart = time.time()
 	print('\n(Fetching AlphaVantage data for '+t+')')
 	try:
@@ -48,17 +24,15 @@ def fetchData(ts,t,charts):
 	except ValueError:
 		sys.exit('\t*Error: ticker/symbol '+t+' does not exist')
 	print('\t*'+t+' Data obtained sucessfully in '+str(round(time.time()-fetchStart,2))+' seconds')
-	df = formatData(d)
-	if(charts):
-		genCharts(df['close'],t)
-	return df		
+	return formatData(d)		
 
 def writeData(file,t,funcName,shareCount,iBalance,fBalance,profit,percent):
 	file.write(t+' '+funcName+' '+str(shareCount)+' '+str(iBalance)+' '+str(fBalance)+' '+str(profit)+' '+str(percent)+'\n')
 
 def backtest(key,tickers,initialBalance,shareCount,strategyTest):
-	stratName = str(strategyTest.__name__)
 	backStart = time.time()
+	getStatistics = False
+	stratName = str(strategyTest.__name__)
 	ts = TimeSeries(key,output_format='pandas')
 	print('\n(Backtesting strategy using '+str(shareCount)+' share(s) over '+str(len(tickers)*len(tickers[0]))+' Stock(s)/ETF(s))')
 	print('\t*Writing to \'data.txt\'')
@@ -68,8 +42,8 @@ def backtest(key,tickers,initialBalance,shareCount,strategyTest):
 		for t in tickers[i]:
 			testStart = time.time()
 			print('\n\t<-- Backtesting '+t+' w/ '+stratName+' -->')
-			data = fetchData(ts,t,False)
-			finalBalance,batchSize = strategyTest(data['close'],t,initialBalance,shareCount,False)
+			data = fetchData(ts,t)
+			finalBalance,batchSize = strategyTest(data,t,initialBalance,shareCount,getStatistics)
 			profit = round(finalBalance-initialBalance,2)
 			percent = round((100*(finalBalance/initialBalance))-100,2)
 			writeData(f,t,stratName,shareCount,initialBalance,finalBalance,profit,percent)
@@ -82,8 +56,8 @@ def backtest(key,tickers,initialBalance,shareCount,strategyTest):
 		print('\n\t(Testing Block '+str(i+1)+' Time-Duration: '
 			  +str(round(time.time()-testBlockStart,2))+' seconds)')
 		if(i<(len(tickers)-1)): # Don't sleep after finishing last sublist
-			print('\n(Sleeping 45 Seconds between test batches)')
-			time.sleep(45)
+			print('\n(Sleeping 58 Seconds between test batches)')
+			time.sleep(58)
 	print('\t*Test Results written to \'data.txt\'')
 	f.close()
 	print('\t*Backtest Time-Duration: '+str(round(time.time()-backStart,2))+' seconds')
@@ -97,23 +71,36 @@ if __name__ == '__main__':
 	print('(Initializing)')
 	print('\t*Clearing \'data.txt\'')
 	f = open('data.txt','w').close()
-	testBalance = 5000.0 # $5,000.00 
-	shares = 2.0
-	#try:
-	#	ticker = sys.argv[1].upper()
-	#except:
-	#	sys.exit('\t*Error: No ticker/symbol entered.')
-	#if not ticker.isalpha():
-	#	sys.exit('\t*Error: Non-letters entered for ticker/symbol/')
-	# Moultiple Ticker Setup, up to 500 Calls per day, 5 calls per minute
-	# Current Size = 12x5 = 60 
-	tData = [
-			 ['DIA','QQQ','SPY','IWM','VTI']
+	try:
+		ticker = sys.argv[1].upper()
+	except IndexError:
+		sys.exit('\t*Error: No ticker/symbol entered for first argument.')
+	if not ticker.isalpha():
+		sys.exit('\t*Error: Non-letters entered for ticker/symbol.')
+	try:
+		shares = float(sys.argv[2])
+	except IndexError:
+		sys.exit('\t*Error: Quantity of shares not entered for second argument.')
+	except ValueError:
+		sys.exit('\t*Error: Non-numerical characters entered for share quantity.')
+	if(shares<=0.0):
+		sys.exit('\t*Error: Negative/Zero share quantity entered.')
+	try:
+		testBalance = float(sys.argv[3])
+	except IndexError:
+		sys.exit('\t*Error: Initial Balance not entered for third argument.')
+	except ValueError:
+		sys.exit('\t*Error: Non-numerical characters entered for share quantity.')
+	if(testBalance<=0.0):
+		sys.exit('\t*Error: Negative/Zero initial balance entered.')
+	
+	# AlphaVantage API limits: 500/day, 5 calls/min
+	tData = [[ticker]
+			 #['DIA','QQQ','SPY','IWM','VTI']
 			 #['XLF','XLV','XLE','XLU','XLI'],
 			 #['XLK','XLB','XLP','XLY','KBE'],
 			 #['XME','XRT','XHB','KRE','XTL'],
 			 #['XOM','URA','CANE','CPER','X'],
-			 #['JNK','BND','LQD','HYG','TLT'],
 			 #['VNQ','UAL','JETS','LUV','DAL'],
 			 #['NFLX','BABA','FDX','DIS','PG'],
 			 #['VALE','RIO','KALU','WPM','GOLD'],
@@ -128,11 +115,15 @@ if __name__ == '__main__':
 	#accountInfo(api)
 	#getAlpacaQuote(api,tData[0][2]) # Bid/Ask Quote
 	#marketOrder(api,ticker,shares)
-	#backtest(AV_API_KEY,tData,testBalance,shares,holdStrategyTest)
-	#sleeper('Hold',5)
-	#backtest(AV_API_KEY,tData,testBalance,shares,emaStrategyTest)
-	#sleeper('EMA',5)
+	backtest(AV_API_KEY,tData,testBalance,shares,holdStrategyTest)
+	#sleeper('Hold',58)
+	backtest(AV_API_KEY,tData,testBalance,shares,emaStrategyTest)
+	#sleeper('EMA',58)
 	#backtest(AV_API_KEY,tData,testBalance,shares,demaStrategyTest)
-	#sleeper('DEMA',5)
+	#sleeper('DEMA',58)
 	backtest(AV_API_KEY,tData,testBalance,shares,rocStrategyTest)
+	#sleeper('ROC',58)
+	backtest(AV_API_KEY,tData,testBalance,shares,tsiStrategyTest)
+	#sleeper('TSI',58)
+	backtest(AV_API_KEY,tData,testBalance,shares,cciStrategyTest)
 	print('\n(\'main.py\' Execution Time: '+str(round(time.time()-mainStart,2))+' seconds)')

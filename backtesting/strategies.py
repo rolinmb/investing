@@ -4,13 +4,13 @@ from analysis import *
 def holdStrategyTest(data,t,initBalance,shareQty,displayStats):
 	print('\n\t(Starting '+t+' Individual Buy & Hold Test)')
 	cash = initBalance
-	cash -= (data.iloc[0]*shareQty)
-	cash += (data.iloc[-1]*shareQty)
+	cash -= (data['close'].iloc[0]*shareQty)
+	cash += (data['close'].iloc[-1]*shareQty)
 	print('\n\t(Finished '+t+' Individual Buy & Hold Test)')
 	if(displayStats):
-		data = [initBalance,cash,data.size,round(cash-initBalance,2),round((100*(cash/initBalance))-100,2)]
-		holdStatistics(data)
-	return round(cash,2),data.size
+		holdData = [initBalance,cash,data.size,round(cash-initBalance,2),round((100*(cash/initBalance))-100,2)]
+		holdStatistics(holdData)
+	return round(cash,2),data['close'].size
 	
 def emaStrategyTest(data,t,initBalance,shareQty,displayStats):
 	print('\n\t(Starting '+t+' Individual EMA-Test)')
@@ -23,12 +23,12 @@ def emaStrategyTest(data,t,initBalance,shareQty,displayStats):
 	crossDates = []
 	crossLens = []
 	inTrade = False
-	ema7 = ema(data,7)
-	ema25 = ema(data,25)
-	prev = data.index.values[0]
+	ema7 = ema(data['close'],7)
+	ema25 = ema(data['close'],25)
+	prev = data['close'].index.values[0]
 	for i in range(0,ema7.size):
-		date = str(data.index.values[i])[:10]
-		price = data.iloc[i]
+		date = str(data['close'].index.values[i])[:10]
+		price = data['close'].iloc[i]
 		if(ema7.iloc[i]<ema25.iloc[i]):   # EMA(25) > EMA(7)
 			signals.append('Bearish')
 			bearCount += 1
@@ -63,7 +63,7 @@ def emaStrategyTest(data,t,initBalance,shareQty,displayStats):
 		prev = date
 		sinceCross += 1
 	if(inTrade):
-		cash += (data.iloc[-1]*shareQty)
+		cash += (data['close'].iloc[-1]*shareQty)
 	if(displayStats):
 		statData = [[crossDates[-1],crossDir[-1],signals[-1]],
 					[upCrosses,downCrosses,neutCrosses,crossSum,crossCount],
@@ -83,12 +83,12 @@ def demaStrategyTest(data,t,initBalance,shareQty,displayStats):
 	crossDates = []
 	crossLens = []
 	inTrade = False
-	ema21 = ema(data,21)
-	dema7 = dema(data,7) 
-	prev = data.index.values[0]
+	ema21 = ema(data['close'],21)
+	dema7 = dema(data['close'],7) 
+	prev = data['close'].index.values[0]
 	for i in range(0,dema7.size):
-		date = str(data.index.values[i])[:10]
-		price = data.iloc[i]
+		date = str(data['close'].index.values[i])[:10]
+		price = data['close'].iloc[i]
 		if(dema7.iloc[i]<ema21.iloc[i]):   # EMA(21) > DEMA(7)
 			signals.append('Bearish')
 			bearCount += 1
@@ -123,7 +123,7 @@ def demaStrategyTest(data,t,initBalance,shareQty,displayStats):
 		prev = date
 		sinceCross += 1
 	if(inTrade):
-		cash += (data.iloc[-1]*shareQty)
+		cash += (data['close'].iloc[-1]*shareQty)
 	if(displayStats):
 		statData = [[crossDates[-1],crossDir[-1],signals[-1]],
 					[upCrosses,downCrosses,neutCrosses,crossSum,crossCount],
@@ -143,13 +143,13 @@ def rocStrategyTest(data,t,initBalance,shareQty,displayStats):
 	crossDates = []
 	crossLens = []
 	inTrade = False
-	roc7 = roc(ema(data,7),12)
-	roc25 = roc(ema(data,25),12)
-	offset = data.size-roc25.size
-	prev = data.index.values[0+offset]
+	roc7 = roc(ema(data['close'],7),12)
+	roc25 = roc(ema(data['close'],25),12)
+	offset = data['close'].size-roc25.size
+	prev = data['close'].index.values[0+offset]
 	for i in range (0,roc25.size):
-		date = str(data.index.values[i])[:10]
-		price = data.iloc[i+offset]
+		date = str(data['close'].index.values[i])[:10]
+		price = data['close'].iloc[i+offset]
 		if(roc7.iloc[i]<roc25.iloc[i] ):  # ROC12(EMA(25)) > ROC12(EMA(7))
 			signals.append('Bearish')
 			bearCount += 1
@@ -184,7 +184,7 @@ def rocStrategyTest(data,t,initBalance,shareQty,displayStats):
 		prev = date
 		sinceCross += 1
 	if(inTrade):
-		cash += (data.iloc[-1]*shareQty)
+		cash += (data['close'].iloc[-1]*shareQty)
 	if(displayStats):
 		statData = [[crossDates[-1],crossDir[-1],signals[-1]],
 					[upCrosses,downCrosses,neutCrosses,crossSum,crossCount],
@@ -204,12 +204,12 @@ def tsiStrategyTest(data,t,initBalance,shareQty,displayStats):
 	crossDates = []
 	crossLens = []
 	inTrade = False
-	trueStrength = tsi(data,26,12)
-	offset = data.size-trueStrength.size
-	prev = data.index.values[0+offset]
+	trueStrength = tsi(data['close'],26,12)
+	offset = data['close'].size-trueStrength.size
+	prev = data['close'].index.values[0+offset]
 	for i in range(0,trueStrength.size):
-		date = str(data.index.values[i])[:10]
-		price = data.iloc[i+offset]
+		date = str(data['close'].index.values[i])[:10]
+		price = data['close'].iloc[i+offset]
 		if(trueStrength[i]<0.0):
 			signals.append('Bearish')  # TSI < 0
 			bearCount += 1
@@ -244,7 +244,7 @@ def tsiStrategyTest(data,t,initBalance,shareQty,displayStats):
 		prev = date
 		sinceCross += 1
 	if(inTrade):
-		cash += (data.iloc[-1]*shareQty)
+		cash += (data['close'].iloc[-1]*shareQty)
 	if(displayStats):
 		statData = [[crossDates[-1],crossDir[-1],signals[-1]],
 					[upCrosses,downCrosses,neutCrosses,crossSum,crossCount],
@@ -252,3 +252,64 @@ def tsiStrategyTest(data,t,initBalance,shareQty,displayStats):
 		tsiStatistics(initBalance,cash,tsi.size,inTrade,statData)
 	print('\n\t(Finished '+t+' Individual TSI Test)')
 	return round(cash,2),trueStrength.size
+	
+def cciStrategyTest(data,t,initBalance,shareQty,displayStats):
+	print('\n\t(Starting '+t+' Individual CCI Test)')
+	cash = initBalance
+	bearCount = bullCount = neutralCount = 0
+	crossCount = crossSum = sinceCross = 0
+	upCrosses = downCrosses = neutCrosses = 0
+	signals = []
+	crossDir = []
+	crossDates = []
+	crossLens = []
+	inTrade = False
+	comChannel = cci(data['high'],data['low'],data['close'],20)
+	ema18 = ema(comChannel,18)
+	sma200 = sma(comChannel,200)
+	prev = data['close'].index.values[0]
+	for i in range(0,comChannel.size):
+		date = str(data['close'].index.values[i])[:10]
+		price = data['close'].iloc[i]
+		if(ema18.iloc[i]<sma200.iloc[i]):   # EMA < SMA
+			signals.append('Bearish')
+			bearCount += 1
+		elif(ema18.iloc[i]>sma200.iloc[i]): # EMA > SMA
+			signals.append('Bullish')
+			bullCount += 1
+		else:								# EMA = SMA
+			signals.append('Neutral')
+			neutralCount += 1	
+		if((i>0)and(signals[i]!=signals[i-1])) # Detect CCI MA Crossover
+			tradeVal = price*shareQty
+			crossLens.append(sinceCross)
+			crossDates.append(date)
+			crossSum += sinceCross
+			crossCount += 1
+			sinceCross = 0
+			if(((signals[i-1]=='Bearish')or(signals[i-1]=='Neutral'))and(signals[i]=='Bullish')):
+				crossDir.append('Upward')
+				upCrosses += 1
+				if(not inTrade):
+					inTrade = True
+					cash -= tradeVal
+			elif(((signals[i-1]=='Bullish')or(signals[i-1]=='Neutral'))and(signals[i]=='Bearish')):
+				crossDir.append('Downward')
+				downCrosses += 1
+				if(inTrade):
+					inTrade = False
+					cash += tradeVal
+			else:
+				crossDir.append('Neutral')
+				neutCrosses += 1
+		prev = date
+		sinceCross += 1
+	if(inTrade):
+		cash += (data['close'].iloc[-1]*shareQty)
+	if(displayStats):
+		statData = [[crossDates[-1],crossDir[-1],signals[-1]],
+					[upCrosses,downCrosses,neutCrosses,crossSum,crossCount],
+					[bullCount,bearCount,neutralCount]]
+		cciStatistics(initBalance,cash,tsi.size,inTrade,statData)
+	print('\n\t(Finished '+t+' Individual CCI Test)')
+	return round(cash,2),comChannel.size
