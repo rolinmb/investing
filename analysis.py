@@ -54,3 +54,9 @@ def tsi(c,r,s):
 	ema1 = ema(ema(mom,r),s)
 	ema2 = ema(ema(abs(mom),r),s)
 	return 100*(ema1/ema2)
+	
+def cci(h,l,c,n):
+	tp = typicalPrice(h,l,c)
+	ma = sma(tp,n)
+	std = tp.rolling(n).std()
+	return pd.Series(((tp-ma)/(.015*std)),index=tp.index.values)
