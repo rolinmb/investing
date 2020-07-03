@@ -71,13 +71,16 @@ if __name__ == '__main__':
 	print('(Initializing)')
 	print('\t*Clearing \'data.txt\'')
 	f = open('data.txt','w').close()
+	# Comment out this block if you want to use more tickers with tData
 	try:
 		ticker = sys.argv[1].upper()
 	except IndexError:
 		sys.exit('\t*Error: No ticker/symbol entered for first argument.')
 	if not ticker.isalpha():
 		sys.exit('\t*Error: Non-letters entered for ticker/symbol.')
+		
 	try:
+		#shares = float(sys.argv[1])
 		shares = float(sys.argv[2])
 	except IndexError:
 		sys.exit('\t*Error: Quantity of shares not entered for second argument.')
@@ -85,7 +88,9 @@ if __name__ == '__main__':
 		sys.exit('\t*Error: Non-numerical characters entered for share quantity.')
 	if(shares<=0.0):
 		sys.exit('\t*Error: Negative/Zero share quantity entered.')
+	
 	try:
+		#testBalance = float(sys.argv[2])
 		testBalance = float(sys.argv[3])
 	except IndexError:
 		sys.exit('\t*Error: Initial Balance not entered for third argument.')
@@ -93,9 +98,8 @@ if __name__ == '__main__':
 		sys.exit('\t*Error: Non-numerical characters entered for share quantity.')
 	if(testBalance<=0.0):
 		sys.exit('\t*Error: Negative/Zero initial balance entered.')
-	
 	# AlphaVantage API limits: 500/day, 5 calls/min
-	tData = [[ticker]
+	tData = [[ticker]  # Delete [ticker] and uncomment to get use more tickers
 			 #['DIA','QQQ','SPY','IWM','VTI']
 			 #['XLF','XLV','XLE','XLU','XLI'],
 			 #['XLK','XLB','XLP','XLY','KBE'],

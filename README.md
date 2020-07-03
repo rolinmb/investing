@@ -1,6 +1,6 @@
 # Investing Projects
 <i>This repo contains several ongoing financial market projects implemented Python(Version 3.6.2).</i><br />
-Last Updated: <i>7/1/2020</i><br />
+Last Updated: <i>7/3/2020</i><br />
 <b>NOTES</b>:<ul>
 <li>You will only witness stock and forex quotes update during market open hours/days,<br />
 this does not apply to cryptocurrency quotes.</li>
@@ -36,7 +36,7 @@ to iterates through the uncommented tickers in tData.
 		<li>Commodity Channel Index</li>
 	</ul></li>
 <li>Dependencies: Pandas</li></ul>
-
+<hr>
 # stock_quote.py
 <ul><li>Fetches single stock/ETF quote via marketwatch.com</li>
 <li>1st and only argument is the ticker/symbol of desired stock</li>
@@ -56,7 +56,7 @@ to iterates through the uncommented tickers in tData.
 <li>1st and only argument is the ticker/symbol</li>
 <li>Example Usage: "stock_chart.py spy"</li>
 <li>Dependencies: Pandas, Matplotlib, alpha_vantage</li></ul>
-
+<hr>
 # crypto_quote.py
 <ul><li>Fetches single cryptocurrency quote via marketwatch.com</li>
 <li>1st argument is the foreign currency symbol</li>
@@ -79,7 +79,7 @@ to iterates through the uncommented tickers in tData.
 <li>2nd argument is the relative currency</li>
 <li>Example Usage: "crypto_chart.py btc usd"</li>
 <li>Dependencies: Pandas, Matplotlib, alpha_vantage</li></ul>
-
+<hr>
 # forex_quote.py
 <ul><li>Fetches single foreign exchange cross quote via marketwatch.com</li>
 <li>1st argument is the foreign currency symbol</li>
@@ -102,7 +102,7 @@ to iterates through the uncommented tickers in tData.
 <li>2nd argument is the domestic currency symbol</li>
 <li>Example Usage: "forex_chart.py eur usd"</li>
 <li>Dependencies: Pandas, Matplotlib, alpha_vantage</li></ul>
-
+<hr>
 # gold_silver.py
 <ul><li>Gold/Silver Ratio (XAU/XAG) using GLDM and SLV ETFs (Short lookback period)</li>
 <li>When the XAU/XAG increases, Gold strengthens relative to Silver</li>
