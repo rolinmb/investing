@@ -126,4 +126,8 @@ to iterates through the uncommented tickers in tData.
 # blackScholes.py
 <ul><li>Rough implementation of the Black-Scholes options pricing model</li>
 <li>Also contains implementations for 'greeks' or derivatives of Black-Scholes partial differential equation</li>
-<li>Dependencies: Scipy, Numpy</li></ul>
+<li>Dependencies: Scipy, Numpy, Matplotlib</li></ul>
+
+# put_call_ratio.py
+<ul><li>Extracts the CBOE Put/Call Ratio from https://ycharts.com/indicators/cboe_equity_put_call_ratio</li>
+<li>Dependencies: BeautifulSoup</li></ul>
