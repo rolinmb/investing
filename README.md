@@ -124,6 +124,6 @@ to iterates through the uncommented tickers in tData.
 <li>Dependencies: Pandas, Matplotlib, alpha_vantage</li></ul>
 
 # blackScholes.py
-<ul><li>Simple implementation of Black-Schoels options pricing modle</li>
+<ul><li>Rough implementation of the Black-Scholes options pricing model</li>
 <li>Also contains implementations for 'greeks' or derivatives of Black-Scholes partial differential equation</li>
 <li>Dependencies: Scipy, Numpy</li></ul>
