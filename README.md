@@ -122,3 +122,8 @@ to iterates through the uncommented tickers in tData.
 # btc_xtz.py
 <ul><li>Bitcoin/Tezos Ratio (BTC/XTZ) using BTC/USD and XTZ/USD</li>
 <li>Dependencies: Pandas, Matplotlib, alpha_vantage</li></ul>
+
+# blackScholes.py
+<ul><li>Simple implementation of Black-Schoels options pricing modle</li>
+<li>Also contains implementations for 'greeks' or derivatives of Black-Scholes partial differential equation</li>
+<li>Dependencies: Scipy, Numpy</li></ul>
