@@ -2,8 +2,6 @@ from bs4 import BeautifulSoup
 import requests
 import sys
 
-
-
 if __name__ == '__main__':
 	url = 'https://ycharts.com/indicators/cboe_equity_put_call_ratio'
 	resp = requests.get(url)

@@ -34,7 +34,7 @@ if __name__ == '__main__':
 	#o = data['open']
 	#h = data['high']
 	#l = data['low']
-	v = data['volume']
+	#v = data['volume']
 	print('Generating Charts:')
 	
 	plt.figure(0)
@@ -43,14 +43,17 @@ if __name__ == '__main__':
 	plt.ylabel('Price')
 	plt.grid()
 	plt.plot(c,label='Close')
-	plt.plot(sma(c,500),label='500-SMA')
-	plt.plot(sma(c,200),'--',label='200-SMA')
-	plt.plot(sma(c,100),'--',label='100-SMA')
 	plt.plot(sma(c,25),'--',label='25-SMA')
-	plt.plot(ema(c,10),'-.',label='10-EMA')
-	plt.plot(dema(c,7),'-.',label='7-DEMA')
+	plt.plot(ema(c,25),'-.',label='25-EMA')
+	plt.plot(dema(c,25),'-.',label='25-DEMA')
+	'''
+	plt.plot(sma(c,25),'--',label='1mo-SMA') 	# 5 trading days per week; 5 weeks roughly each month
+	plt.plot(sma(c,130),'--',label='0.5yr-SMA') # 52 Weeks a year
+	plt.plot(sma(c,260),'--',label='1yr-SMA')
+	plt.plot(sma(c,1040),'--',label='4yr-SMA')
+	'''
 	plt.legend()
-	
+
 	plt.figure(1)
 	plt.title('Rates of Change (Daily) for '+ticker)
 	plt.xlabel('Date')
@@ -78,7 +81,7 @@ if __name__ == '__main__':
 	plt.plot(standardDeviations(c),label='Rolling Standard Deviations')
 	plt.plot(sma(standardDeviations(c),200),label='SMA-200 of Std. Devs')
 	plt.legend()
-	
+	'''
 	plt.figure(4)
 	plt.title('Volume History for '+ticker)
 	plt.xlabel('Date')
@@ -95,5 +98,5 @@ if __name__ == '__main__':
 	plt.ylabel('Value')
 	plt.grid()
 	plt.plot(tsi(c,26,12))
-	
+	'''
 	plt.show()

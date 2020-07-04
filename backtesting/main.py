@@ -71,16 +71,13 @@ if __name__ == '__main__':
 	print('(Initializing)')
 	print('\t*Clearing \'data.txt\'')
 	f = open('data.txt','w').close()
-	# Comment out this block if you want to use more tickers with tData
 	try:
 		ticker = sys.argv[1].upper()
 	except IndexError:
 		sys.exit('\t*Error: No ticker/symbol entered for first argument.')
 	if not ticker.isalpha():
 		sys.exit('\t*Error: Non-letters entered for ticker/symbol.')
-		
 	try:
-		#shares = float(sys.argv[1])
 		shares = float(sys.argv[2])
 	except IndexError:
 		sys.exit('\t*Error: Quantity of shares not entered for second argument.')
@@ -88,9 +85,7 @@ if __name__ == '__main__':
 		sys.exit('\t*Error: Non-numerical characters entered for share quantity.')
 	if(shares<=0.0):
 		sys.exit('\t*Error: Negative/Zero share quantity entered.')
-	
 	try:
-		#testBalance = float(sys.argv[2])
 		testBalance = float(sys.argv[3])
 	except IndexError:
 		sys.exit('\t*Error: Initial Balance not entered for third argument.')
@@ -99,7 +94,7 @@ if __name__ == '__main__':
 	if(testBalance<=0.0):
 		sys.exit('\t*Error: Negative/Zero initial balance entered.')
 	# AlphaVantage API limits: 500/day, 5 calls/min
-	tData = [[ticker]  # Delete [ticker] and uncomment to get use more tickers
+	tData = [[ticker]
 			 #['DIA','QQQ','SPY','IWM','VTI']
 			 #['XLF','XLV','XLE','XLU','XLI'],
 			 #['XLK','XLB','XLP','XLY','KBE'],
@@ -119,15 +114,18 @@ if __name__ == '__main__':
 	#accountInfo(api)
 	#getAlpacaQuote(api,tData[0][2]) # Bid/Ask Quote
 	#marketOrder(api,ticker,shares)
-	backtest(AV_API_KEY,tData,testBalance,shares,holdStrategyTest)
+	# Can only perform 5 single tests or a block of 5 tests before sleeping
+	backtest(AV_API_KEY,tData,testBalance,shares,holdStrategyTest)  # Buy & Hold 
 	#sleeper('Hold',58)
-	backtest(AV_API_KEY,tData,testBalance,shares,emaStrategyTest)
+	backtest(AV_API_KEY,tData,testBalance,shares,smaStrategyTest)   # DEMA-25 & SMA-25
+	#sleeper('SMA',58)
+	backtest(AV_API_KEY,tData,testBalance,shares,emaStrategyTest)   # EMA-7 & EMA-25
 	#sleeper('EMA',58)
-	#backtest(AV_API_KEY,tData,testBalance,shares,demaStrategyTest)
+	backtest(AV_API_KEY,tData,testBalance,shares,demaStrategyTest)  # EMA-21 & DEMA-7
 	#sleeper('DEMA',58)
-	backtest(AV_API_KEY,tData,testBalance,shares,rocStrategyTest)
+	backtest(AV_API_KEY,tData,testBalance,shares,rocStrategyTest)  # ROC(12)[EMA-7] & ROC(12)[EMA-25]
 	#sleeper('ROC',58)
-	backtest(AV_API_KEY,tData,testBalance,shares,tsiStrategyTest)
+	#backtest(AV_API_KEY,tData,testBalance,shares,tsiStrategyTest)  # True Strength Index
 	#sleeper('TSI',58)
-	backtest(AV_API_KEY,tData,testBalance,shares,cciStrategyTest)
+	#backtest(AV_API_KEY,tData,testBalance,shares,cciStrategyTest)  # Commodity Channel Index
 	print('\n(\'main.py\' Execution Time: '+str(round(time.time()-mainStart,2))+' seconds)')

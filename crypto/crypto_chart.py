@@ -41,7 +41,7 @@ if __name__ == '__main__':
 	#h = data['high']
 	#l = data['low']
 	c = data['close']
-	#v = data['volume']
+	v = data['volume']
 	
 	print('Generating Charts:')
 	plt.figure(0)
@@ -52,6 +52,7 @@ if __name__ == '__main__':
 	plt.plot(c,label='Close')
 	plt.plot(sma(c,200),'--',label='200-SMA')
 	plt.plot(sma(c,105),'--',label='105-SMA')
+	plt.plot(sma(c,50),'--',label='50-SMA')
 	plt.plot(ema(c,14),'-.',label='14-EMA')
 	plt.plot(dema(c,14),'-.',label='14-DEMA')
 	plt.legend()
