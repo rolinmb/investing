@@ -8,3 +8,4 @@ misc/config.py
 misc/analysis.py
 stock/config.py
 stock/analysis.py
+__pycache__
