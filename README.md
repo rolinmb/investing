@@ -1,14 +1,14 @@
 # Investing Projects
 <i>This repo contains several ongoing financial market projects implemented Python(Version 3.6.2).</i><br />
-Last Updated: <i>7/3/2020</i><br />
+Last Updated: <i>7/12/2020</i><br />
 <b>NOTES</b>:<ul>
 <li>You will only witness stock and forex quotes update during market open hours/days,<br />
 this does not apply to cryptocurrency quotes.</li>
-<li>You will need your own Alpaca & AlphaVantage API keys. I keep mine in a local 'confing.py' file</li><ul>
+<li>You will need your own Alpaca & AlphaVantage API keys. I keep mine in a local 'confing.py/js' files</li><ul>
 
 # /backtesting
 <ul><li>This folder contains projects from analyzing various strategies I plan to use on a paper account with Alpaca</li>
-<li>main.py executes the backtest, 3 arguments needed unless you delete [ticker] in the tData[] list which then allows the program
+<li><b>main.py</b> executes the backtest, 3 arguments needed unless you delete [ticker] in the tData[] list which then allows the program
 to iterates through the uncommented tickers in tData. 
 	<ul>
 		<li>1st argument is the ticker (unless commented)</li>
@@ -23,6 +23,20 @@ to iterates through the uncommented tickers in tData.
 <li>alpaca_util.py contains several functions that work with alpaca_trade_api.REST accounts</li>
 <li>I have a file data.txt where I output the results to as a whitespace-delimited file</li>
 <li>Dependencies: Pandas, alpaca_trade_api, alpha_vantage, matplotlib</li></ul>
+
+# alpaca_test.js
+<ul>
+<li>Simple script which uses Alpaca's JavaScript API wrapper for account information and the ability to trade(paper or live)</li>
+<li>Needs a config.js file which contains your API keys and correctly imports them as this is written with Node.js in mind</li>
+</ul>
+
+# config.py
+<ul><li>Demo configuration file for Alpaca & AlphaVantage API keys</li></ul>
+
+# config.js
+<ul><li>Demo configuration file for Alpaca & AlphaVantage api keys</li>
+<li>Uses Object.defineProperty to stay within boundaries of Node.js for exporting constants</li></ul>
+
 
 # analysis.py
 <ul><li>A python module of functions used for technical analysis.</li>

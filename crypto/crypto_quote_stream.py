@@ -20,6 +20,7 @@ def streamQuotes(url,num):
 		html = resp.text
 		rate = parseRate(html)
 		print('\t('+str(n+1)+') Current Rate: ',rate)
+		time.sleep(0.5)
 	sesh.close()
 	
 def checkArgs(c,m,n):
@@ -42,7 +43,7 @@ if __name__ == '__main__':
 	try:
 		coin = sys.argv[1].upper()
 	except IndexError:
-		sys.exit('No foreign currency symbol entered.')
+		sys.exit('No cryptocurrency currency symbol entered.')
 	try:
 		mkt = sys.argv[2].upper() 
 	except IndexError:
