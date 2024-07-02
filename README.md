@@ -2,6 +2,7 @@
 <i>This repo contains several ongoing financial market projects implemented Python(Version 3.6.2).</i><br />
 Last Updated: <i>7/12/2020</i><br />
 <b>NOTES</b>:<ul>
+<li>NOT FINANCIAL ADVICE; IF YOU ARE TO USE THESE PROGRAMS TO MAKE FINANCIAL DECISIONS IT WILL BE DONE AT YOUR OWN RISK.</li>
 <li>You will only witness stock and forex quotes update during market open hours/days,<br />
 this does not apply to cryptocurrency quotes.</li>
 <li>You will need your own Alpaca & AlphaVantage API keys. I keep mine in a local 'confing.py/js' files</li><ul>
